@@ -18,7 +18,9 @@ namespace FungiriumN.Sprites
 
 
 			// 溶液を追加	
-			var solution = new TestTubeSolutionSprite ();
+			var solution = new TestTubeSolutionSprite () {
+				ZPosition = -1.0f,
+			};
 			this.AddChild (solution);
 		}
 	}
