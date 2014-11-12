@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FungiriumN", "FungiriumN\FungiriumN.csproj", "{E3FB889F-7B7D-4429-B4BD-20F893A65997}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C7F283D-6FB2-48AA-9617-5B58617381FA}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+		Ad-Hoc|iPhone = Ad-Hoc|iPhone
+		AppStore|iPhone = AppStore|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.Debug|iPhone.Build.0 = Debug|iPhone
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.Release|iPhone.ActiveCfg = Release|iPhone
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.Release|iPhone.Build.0 = Release|iPhone
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{E3FB889F-7B7D-4429-B4BD-20F893A65997}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = FungiriumN\FungiriumN.csproj
+	EndGlobalSection
+EndGlobal

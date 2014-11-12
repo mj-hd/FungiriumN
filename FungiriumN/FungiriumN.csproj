@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{E3FB889F-7B7D-4429-B4BD-20F893A65997}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FungiriumReloaded</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>FungiriumReloaded</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>true</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <ConsolePause>false</ConsolePause>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Spaceship.png" />
+    <BundleResource Include="Resources\Test_tube.png" />
+    <BundleResource Include="Resources\Test_tube_solution.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestTubeScene.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="MainStoryboard.storyboard" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Resources\Fungi.atlas\" />
+    <Folder Include="Resources\UI.atlas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AtlasTexture Include="Resources\Fungi.atlas\Amebakin.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Amebakin_Dead.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Amebakin_Eat1.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Amebakin_Eat2.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Amebakin_Happy.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Amebakin_Move.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Chochinkin_m.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Chochinkin_m_Dead.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Chochinkin_m_Eat1.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Chochinkin_m_Eat2.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Chochinkin_m_Happy.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Chochinkin_m_Move.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Dropkin.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Dropkin_Dead.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Dropkin_Eat1.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Dropkin_Eat2.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Dropkin_Happy.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Dropkin_Move.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Fungus_Bubble.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Kuragekin.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Kuragekin_Dead.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Kuragekin_Eat1.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Kuragekin_Eat2.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Kuragekin_Happy.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Kuragekin_Move.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Rensakin.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Rensakin_Dead.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Rensakin_Eat1.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Rensakin_Eat2.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Rensakin_Happy.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Rensakin_Move.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\SampleFungus.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\SampleFungus_Dead.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\SampleFungus_Eat1.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\SampleFungus_Eat2.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\SampleFungus_Happy.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\SampleFungus_Move.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Sankakukin.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Sankakukin_Dead.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Sankakukin_Eat1.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Sankakukin_Eat2.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Sankakukin_Happy.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Sankakukin_Move.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shikakukin.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shikakukin_Dead.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shikakukin_Eat1.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shikakukin_Eat2.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shikakukin_Happy.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shikakukin_Move.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shokkakukin2.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shokkakukin2_Dead.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shokkakukin2_Eat1.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shokkakukin2_Eat2.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shokkakukin2_Happy.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Shokkakukin2_Move.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Susukin.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Susukin_Dead.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Susukin_Eat1.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Susukin_Eat2.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Susukin_Happy.png" />
+    <AtlasTexture Include="Resources\Fungi.atlas\Susukin_Move.png" />
+    <AtlasTexture Include="Resources\UI.atlas\BigShadow.png" />
+    <AtlasTexture Include="Resources\UI.atlas\Collection1.png" />
+    <AtlasTexture Include="Resources\UI.atlas\Collection2.png" />
+    <AtlasTexture Include="Resources\UI.atlas\Item1.png" />
+    <AtlasTexture Include="Resources\UI.atlas\Item2.png" />
+    <AtlasTexture Include="Resources\UI.atlas\PaperShadow.png" />
+    <AtlasTexture Include="Resources\UI.atlas\Put1.png" />
+    <AtlasTexture Include="Resources\UI.atlas\Put2.png" />
+    <AtlasTexture Include="Resources\UI.atlas\PutLabel.png" />
+    <AtlasTexture Include="Resources\UI.atlas\Ruler.png" />
+    <AtlasTexture Include="Resources\UI.atlas\Shop1.png" />
+    <AtlasTexture Include="Resources\UI.atlas\Shop2.png" />
+    <AtlasTexture Include="Resources\UI.atlas\SmallShadow.png" />
+  </ItemGroup>
+</Project>
