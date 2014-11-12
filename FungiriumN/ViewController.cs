@@ -29,7 +29,7 @@ namespace FungiriumN
 			skView.ShowsNodeCount = true;
 
 			// Create and configure the scene.
-			var scene = new TestTubeScene (skView.Bounds.Size);
+			var scene = new Scenes.TestTubeScene (skView.Bounds.Size);
 			scene.ScaleMode = SKSceneScaleMode.AspectFill;
 
 			// Present the scene.

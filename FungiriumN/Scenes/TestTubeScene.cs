@@ -5,7 +5,7 @@ using MonoTouch.Foundation;
 using MonoTouch.SpriteKit;
 using MonoTouch.UIKit;
 
-namespace FungiriumN
+namespace FungiriumN.Scenes
 {
 	public class TestTubeScene : SKScene
 	{
