@@ -111,6 +111,7 @@
     <Compile Include="Sprites\TestTubeSprite.cs" />
     <Compile Include="Sprites\TestTubeSolutionSprite.cs" />
     <Compile Include="Scenes\TestTubeScene.cs" />
+    <Compile Include="Scenes\ZoomScrollScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
