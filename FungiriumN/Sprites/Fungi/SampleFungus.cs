@@ -36,6 +36,16 @@ namespace FungiriumN.Sprites.Fungi
 			}
 		}
 
+		public Request Request
+		{
+			get {
+				return this._Request;
+			}
+			set {
+				this._Request = value;
+			}
+		}
+
 		public float Energy
 		{
 			get {
@@ -43,13 +53,6 @@ namespace FungiriumN.Sprites.Fungi
 			}
 			set {
 				this._Energy = value;
-			}
-		}
-
-		public bool IsDead
-		{
-			get {
-				return this._IsDead;
 			}
 		}
 
@@ -83,8 +86,8 @@ namespace FungiriumN.Sprites.Fungi
 		protected virtual string _InternalName { get { return SampleFungus.InternalName; }}
 		protected SKSpriteNode _Sprite;
 		protected State _State;
+		protected Request _Request;
 		protected float _Energy = 100.0f;
-		protected bool _IsDead = false;
 		protected SKAction _MoveAnimation;
 		protected SKAction _EatAnimation;
 		protected SKAction _HappyAnimation;
@@ -125,7 +128,7 @@ namespace FungiriumN.Sprites.Fungi
 			this._DeadAnimation = SKAction.Sequence (
 				deadAnimation,
 				SKAction.Run (() => {
-					this._IsDead = true;
+					this._Request = Request.Clean;
 				}),
 				SKAction.RemoveFromParent ()
 			);

@@ -41,10 +41,17 @@ namespace FungiriumN.Sprites.Fungi
 
 			foreach (var fungus in this)
 			{
-				// 死亡した菌
-				if (fungus.IsDead) {
+				switch (fungus.Request) {
+				case Request.Clean: // 死亡
+
 					wantedList.Add (fungus);
+
 					continue;
+				case Request.Divide: // 分裂
+
+
+
+					break;
 				}
 
 				// TODO: 一秒よりもっと細かく呼び出すべき

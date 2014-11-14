@@ -16,13 +16,14 @@ namespace FungiriumN.Sprites.Fungi
 			set;
 		}
 
-		float Energy {
+		Request Request {
 			get;
 			set;
 		}
 
-		bool IsDead {
+		float Energy {
 			get;
+			set;
 		}
 
 		void Update (double delta);
@@ -36,6 +37,14 @@ namespace FungiriumN.Sprites.Fungi
 		Eat,
 		Happy,
 		Dead
+	}
+
+	// FungusからFungiへの要求
+	public enum Request
+	{
+		None,
+		Clean,
+		Divide
 	}
 }
 
