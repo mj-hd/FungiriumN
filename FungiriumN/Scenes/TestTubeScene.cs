@@ -10,19 +10,20 @@ namespace FungiriumN.Scenes
 	public class TestTubeScene : SKScene
 	{
 		protected ZoomScrollScene MainView;
+		protected Sprites.TestTubeSprite TestTube;
 
 		public TestTubeScene (SizeF size) : base (size)
 		{
-			BackgroundColor = new UIColor (1.0f, 1.0f, 1.0f, 1.0f);
+			BackgroundColor = new UIColor (0.5f, 0.5f, 0.5f, 1.0f);
 
 			this.MainView = new ZoomScrollScene (size);
 
 			// 試験管を追加
-			var testTube = new Sprites.TestTubeSprite () {
+			this.TestTube = new Sprites.TestTubeSprite () {
 				Position = new PointF (Frame.X + Frame.Width / 2, Frame.Y + Frame.Height / 2),
 			};
 
-			this.MainView.AddContainer (testTube);
+			this.MainView.AddContainer (this.TestTube);
 
 			AddChild (this.MainView);
 		}
