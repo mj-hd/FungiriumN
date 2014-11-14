@@ -119,10 +119,10 @@
     <Compile Include="Sprites\Fungi\Shokkakukin2.cs" />
     <Compile Include="Sprites\Fungi\Sankakukin.cs" />
     <Compile Include="Sprites\Fungi\Amebakin.cs" />
-    <Compile Include="Sprites\Fungi\Chochinkin.cs" />
     <Compile Include="Sprites\Fungi\Dropkin.cs" />
     <Compile Include="Sprites\Fungi\Kuragekin.cs" />
     <Compile Include="Sprites\Fungi\Rensakin.cs" />
+    <Compile Include="Sprites\Fungi\ChochinkinM.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
