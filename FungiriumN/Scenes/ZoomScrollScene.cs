@@ -21,8 +21,22 @@ namespace FungiriumN.Scenes
 
 			this.Container = container;
 
-			this.AddChild (container);
+			base.AddChild (container);
 
+		}
+
+		public override void AddChild (SKNode child)
+		{
+
+			this.Container.AddChild (child);
+
+		}
+
+		public override SKNode[] Children {
+			get
+			{
+				return this.Container.Children;
+			}
 		}
 
 		public override void DidMoveToView (SKView view)
