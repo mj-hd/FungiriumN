@@ -123,6 +123,7 @@
     <Compile Include="Sprites\Fungi\Kuragekin.cs" />
     <Compile Include="Sprites\Fungi\Rensakin.cs" />
     <Compile Include="Sprites\Fungi\ChochinkinM.cs" />
+    <Compile Include="Sprites\Fungi\Fungi.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

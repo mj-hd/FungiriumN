@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Collections.Generic;
 
 using MonoTouch.UIKit;
 using MonoTouch.SpriteKit;
@@ -8,6 +9,8 @@ namespace FungiriumN.Sprites
 {
 	public class TestTubeSprite : SKSpriteNode
 	{
+		public Fungi.Fungi Fungi;
+
 		public TestTubeSprite ()
 			: base()
 		{
@@ -32,6 +35,9 @@ namespace FungiriumN.Sprites
 				ZPosition = 0.0f,
 			};
 			this.AddChild (solution);
+
+			// Fungiコレクションの初期化
+			this.Fungi = new Fungi.Fungi (this);
 		}
 
 		// Fungus用のAddChildを定義
@@ -40,6 +46,13 @@ namespace FungiriumN.Sprites
 			fungus.Sprite.ZPosition = 1.0f;
 
 			this.AddChild (fungus.Sprite);
+
+			this.Fungi.Add (fungus);
+		}
+
+		public void Update (double time)
+		{
+			this.Fungi.Update (time);
 		}
 
 	}

@@ -14,7 +14,7 @@ namespace FungiriumN.Sprites.Fungi
 
 			this._SetTexturesFromFungusID (this._InternalName);
 
-			this.State = Fungi.State.Move;
+			this.State = State.Move;
 		}
 
 		public SKSpriteNode Sprite
@@ -24,7 +24,7 @@ namespace FungiriumN.Sprites.Fungi
 			}
 		}
 
-		public Fungi.State State
+		public State State
 		{
 			get {
 				return this._State;
@@ -35,10 +35,15 @@ namespace FungiriumN.Sprites.Fungi
 			}
 		}
 
+		public void Update (double delta)
+		{
+			// TODO: 空腹などの管理
+		}
+
 
 		protected virtual string _InternalName { get { return SampleFungus.InternalName; }}
 		protected SKSpriteNode _Sprite;
-		protected Fungi.State _State;
+		protected State _State;
 		protected SKAction _MoveAnimation;
 		protected SKAction _EatAnimation;
 		protected SKAction _HappyAnimation;
@@ -80,7 +85,7 @@ namespace FungiriumN.Sprites.Fungi
 			this._HappyAnimation = SKAction.Sequence (
 				happyAnimation,
 				SKAction.Run (() => {
-					this._SwitchAnimation (Fungi.State.Move);
+					this._SwitchAnimation (State.Move);
 				})
 			);
 			this._DeadAnimation = SKAction.Sequence (
@@ -95,7 +100,7 @@ namespace FungiriumN.Sprites.Fungi
 			this._Sprite.Size = moveTexture [0].Size;
 		}
 
-		protected virtual void _SwitchAnimation (Fungi.State state)
+		protected virtual void _SwitchAnimation (State state)
 		{
 			SKAction action;
 

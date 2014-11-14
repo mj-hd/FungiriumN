@@ -26,11 +26,15 @@ namespace FungiriumN.Scenes
 			this.MainView.AddContainer (this.TestTube);
 
 			AddChild (this.MainView);
+
+			var sampleFungus = new Sprites.Fungi.SampleFungus();
+			this.TestTube.AddChild (sampleFungus);
 		}
 
 		public override void Update (double currentTime)
 		{
 			base.Update (currentTime);
+			this.TestTube.Update (currentTime);
 		}
 
 		public override void DidMoveToView (SKView view)

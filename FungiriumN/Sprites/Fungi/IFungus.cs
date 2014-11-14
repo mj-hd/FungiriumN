@@ -16,6 +16,7 @@ namespace FungiriumN.Sprites.Fungi
 			set;
 		}
 
+		void Update (double delta);
 	}
 
 	// Fungusの状態
