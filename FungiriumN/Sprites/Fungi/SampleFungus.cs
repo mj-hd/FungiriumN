@@ -36,9 +36,33 @@ namespace FungiriumN.Sprites.Fungi
 			}
 		}
 
+		public float Energy
+		{
+			get {
+				return this._Energy;
+			}
+			set {
+				this._Energy = value;
+			}
+		}
+
+		public bool IsDead
+		{
+			get {
+				return this._IsDead;
+			}
+		}
+
 		public void Update (double delta)
 		{
-			// TODO: 空腹などの管理
+			// エネルギー
+			this._Energy -= (float)delta * 1.0f;
+
+			if (this._Energy < 0.0f) {
+
+				this._SwitchAnimation (State.Dead);
+
+			}
 
 			// 移動
 			if (this.State == State.Move) {
@@ -59,6 +83,8 @@ namespace FungiriumN.Sprites.Fungi
 		protected virtual string _InternalName { get { return SampleFungus.InternalName; }}
 		protected SKSpriteNode _Sprite;
 		protected State _State;
+		protected float _Energy = 100.0f;
+		protected bool _IsDead = false;
 		protected SKAction _MoveAnimation;
 		protected SKAction _EatAnimation;
 		protected SKAction _HappyAnimation;
@@ -86,7 +112,7 @@ namespace FungiriumN.Sprites.Fungi
 			var moveAnimation = SKAction.AnimateWithTextures (moveTexture, 0.5);
 			var eatAnimation = SKAction.AnimateWithTextures (eatTexture, 0.5);
 			var happyAnimation = SKAction.AnimateWithTextures (happyTexture, 0.5);
-			var deadAnimation = SKAction.AnimateWithTextures (deadTexture, 0.5);
+			var deadAnimation = SKAction.AnimateWithTextures (deadTexture, 2.0);
 
 			this._MoveAnimation = SKAction.RepeatActionForever (moveAnimation);
 			this._EatAnimation = SKAction.RepeatActionForever (eatAnimation);
@@ -99,8 +125,9 @@ namespace FungiriumN.Sprites.Fungi
 			this._DeadAnimation = SKAction.Sequence (
 				deadAnimation,
 				SKAction.Run (() => {
-					// 死後の処理
-				})
+					this._IsDead = true;
+				}),
+				SKAction.RemoveFromParent ()
 			);
 	
 			this._Sprite.NormalTexture = moveTexture [0];

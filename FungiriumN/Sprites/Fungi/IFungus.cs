@@ -16,6 +16,15 @@ namespace FungiriumN.Sprites.Fungi
 			set;
 		}
 
+		float Energy {
+			get;
+			set;
+		}
+
+		bool IsDead {
+			get;
+		}
+
 		void Update (double delta);
 	}
 

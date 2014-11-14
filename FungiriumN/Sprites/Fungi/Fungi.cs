@@ -34,17 +34,31 @@ namespace FungiriumN.Sprites.Fungi
 
 		protected void _UpdateForASecond ()
 		{
+			var wantedList = new List<IFungus>();
+
 			const int ProducingBubblePerc = 60; // %で
 			var rand = new Random ();
 
 			foreach (var fungus in this)
 			{
+				// 死亡した菌
+				if (fungus.IsDead) {
+					wantedList.Add (fungus);
+					continue;
+				}
+
 				// TODO: 一秒よりもっと細かく呼び出すべき
 				fungus.Update (1.0);
 
 				if (rand.Next (100) < ProducingBubblePerc) {
 					this._ProduceBubble (fungus);
 				}
+			}
+
+			// 死亡した菌を片付ける
+			foreach (var fungus in wantedList)
+			{
+				this.Remove (fungus);
 			}
 		}
 
