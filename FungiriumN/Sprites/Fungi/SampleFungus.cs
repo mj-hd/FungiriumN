@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 using MonoTouch.SpriteKit;
 
@@ -38,6 +39,20 @@ namespace FungiriumN.Sprites.Fungi
 		public void Update (double delta)
 		{
 			// TODO: 空腹などの管理
+
+			// 移動
+			if (this.State == State.Move) {
+
+				const int MoveOccuringPerc = 30; // %
+				var rand = new Random ();
+
+				if (rand.Next(100) < MoveOccuringPerc) {
+
+					this._MoveAround (1.0f);
+
+				}
+
+			}
 		}
 
 
@@ -73,14 +88,7 @@ namespace FungiriumN.Sprites.Fungi
 			var happyAnimation = SKAction.AnimateWithTextures (happyTexture, 0.5);
 			var deadAnimation = SKAction.AnimateWithTextures (deadTexture, 0.5);
 
-			this._MoveAnimation = SKAction.RepeatActionForever (
-				SKAction.Group(
-					moveAnimation,
-					SKAction.Run(() => {
-						// 移動処理
-					})
-				)
-			);
+			this._MoveAnimation = SKAction.RepeatActionForever (moveAnimation);
 			this._EatAnimation = SKAction.RepeatActionForever (eatAnimation);
 			this._HappyAnimation = SKAction.Sequence (
 				happyAnimation,
@@ -123,6 +131,52 @@ namespace FungiriumN.Sprites.Fungi
 
 			this._Sprite.RunAction (action);
 		}
+
+		protected virtual bool _MoveAround (float duration)
+		{
+			var attemptCount = 5; // 5回まで移動の試行
+			var resultPoint = this.Sprite.Position;
+			var resultAngle = 0.0f;
+			var rand = new Random ();
+
+			const double MaxDistanceToMove = 30.0;
+
+			while (attemptCount-- > 0) {
+
+				var angleToMove = rand.NextDouble () * 2.0 * Math.PI;
+				var distToMove = rand.NextDouble () * MaxDistanceToMove;
+
+				var attemptPoint = new PointF (
+					this.Sprite.Position.X +  (float)(distToMove *Math.Cos(angleToMove)),
+					this.Sprite.Position.Y +  (float)(distToMove *Math.Sin(angleToMove))
+				);
+
+				// TestTubeにattemptPointが含まれているかどうか
+				if (Sprites.TestTubeSprite.DoesShapeContains (attemptPoint)) {
+				
+					resultPoint = attemptPoint;
+					resultAngle = (float)angleToMove;
+
+					break;
+				}
+
+			}
+
+			if (attemptCount == 0) {
+				return false;
+			} else {
+
+				// 移動させる
+				this._Sprite.RunAction (SKAction.Group (
+					SKAction.RotateToAngle (resultAngle - (float)Math.PI/2.0f, duration, true),
+					SKAction.MoveTo (resultPoint, duration)
+				));
+
+				return true;
+			}
+
+		}
+
 	}
 }
 
