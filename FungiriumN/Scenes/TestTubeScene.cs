@@ -41,7 +41,7 @@ namespace FungiriumN.Scenes
 		{
 			base.DidMoveToView (view);
 
-			// ウラワザ: 無理やりthis.ContainerのDidMoveToViewを呼び出している
+			// HACK: 無理やりthis.ContainerのDidMoveToViewを呼び出している
 			this.MainView.DidMoveToView (view);
 		}
 	}
