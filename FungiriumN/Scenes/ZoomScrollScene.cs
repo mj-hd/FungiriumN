@@ -65,27 +65,24 @@ namespace FungiriumN.Scenes
 			}
 		}
 
-		//private float _pinchBaseScale;
-		//private float _pinchBasePoint;
 		protected void _OnPinchGesture(UIPinchGestureRecognizer sender)
 		{
 
 			if (sender.State == UIGestureRecognizerState.Began) {
 
-				//this._pinchBasePoint = sender.LocationInView (this.View);
-				//this._pinchBaseScale = sender.Scale;
-
 			} else if (sender.State == UIGestureRecognizerState.Changed) {
 
-				PointF basePoint = sender.LocationInView (this.View);
-				basePoint = this.ConvertPointFromView (basePoint);
+				// TODO: ピンチしても座標がずれないようにする
 
-				PointF nodeBasePoint = this.ConvertPointFromNode (basePoint, this.Container);
-				SizeF translation = new SizeF (basePoint.X - nodeBasePoint.X, basePoint.Y - nodeBasePoint.Y);
+				//PointF basePoint = sender.LocationInView (this.View);
+				//basePoint = this.ConvertPointFromView (basePoint);
+
+				//PointF nodeBasePoint = this.ConvertPointFromNode (basePoint, this.Container);
+				//SizeF translation = new SizeF (basePoint.X - nodeBasePoint.X, basePoint.Y - nodeBasePoint.Y);
 
 				this.Container.XScale *= sender.Scale;
 				this.Container.YScale *= sender.Scale;
-				this.Container.Position = new PointF (this.Container.Position.X - translation.Width, this.Container.YScale - translation.Height);
+				//this.Container.Position = new PointF (this.Container.Position.X - translation.Width, this.Container.YScale - translation.Height);
 
 				sender.Scale = 1.0f;
 
