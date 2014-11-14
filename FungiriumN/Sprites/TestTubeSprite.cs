@@ -105,8 +105,6 @@ namespace FungiriumN.Sprites
 		{
 			fungus.Sprite.ZPosition = 1.0f;
 
-			this.AddChild (fungus.Sprite);
-
 			this.Fungi.Add (fungus);
 		}
 

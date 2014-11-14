@@ -20,6 +20,12 @@ namespace FungiriumN.Sprites.Fungi
 				SKAction.RemoveFromParent ()
 			);
 		}
+
+		public new void Add (IFungus fungus)
+		{
+			base.Add (fungus);
+			this._TestTube.AddChild (fungus.Sprite);
+		}
 			
 		public void Update (double time)
 		{
@@ -35,6 +41,7 @@ namespace FungiriumN.Sprites.Fungi
 		protected void _UpdateForASecond ()
 		{
 			var wantedList = new List<IFungus>();
+			var divideList = new List<IFungus> ();
 
 			const int ProducingBubblePerc = 60; // %で
 			var rand = new Random ();
@@ -49,7 +56,7 @@ namespace FungiriumN.Sprites.Fungi
 					continue;
 				case Request.Divide: // 分裂
 
-
+					divideList.Add (fungus);
 
 					break;
 				}
@@ -66,6 +73,12 @@ namespace FungiriumN.Sprites.Fungi
 			foreach (var fungus in wantedList)
 			{
 				this.Remove (fungus);
+			}
+
+			// 菌を分裂させる
+			foreach (var fungus in divideList)
+			{
+				this.Add ((IFungus)fungus.Clone ());
 			}
 		}
 

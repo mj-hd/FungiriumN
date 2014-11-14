@@ -5,9 +5,29 @@ using MonoTouch.SpriteKit;
 
 namespace FungiriumN.Sprites.Fungi
 {
-	public class SampleFungus : IFungus
+	public class SampleFungus : IFungus, ICloneable
 	{
 		static string InternalName = "SampleFungus";
+
+		#region ICloneable
+
+		object ICloneable.Clone()
+		{
+			return this.Clone ();
+		}
+
+		public virtual SampleFungus Clone()
+		{
+			SampleFungus instance = (SampleFungus)Activator.CreateInstance (this.GetType ());
+
+			// TODO: Clone的にはこうだけど、本当にプロパティを全部コピーするかどうか
+			instance.State  = this.State;
+			instance.Energy = this.Energy;
+
+			return instance;
+		}
+
+		#endregion
 
 		public SampleFungus ()
 		{
@@ -70,12 +90,21 @@ namespace FungiriumN.Sprites.Fungi
 			// 移動
 			if (this.State == State.Move) {
 
-				const int MoveOccuringPerc = 30; // %
+				const int MovePerc = 30; // %
 				var rand = new Random ();
 
-				if (rand.Next(100) < MoveOccuringPerc) {
+				if (rand.Next(100) < MovePerc) {
 
 					this._MoveAround (1.0f);
+
+				}
+
+				// 分裂
+				const int DividePerc = 20; // %
+
+				if (rand.Next(100) < DividePerc) {
+
+					this.Request = Request.Divide;
 
 				}
 

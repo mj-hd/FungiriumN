@@ -4,7 +4,7 @@ using MonoTouch.SpriteKit;
 
 namespace FungiriumN.Sprites.Fungi
 {
-	public interface IFungus
+	public interface IFungus : ICloneable
 	{
 		SKSpriteNode Sprite
 		{
