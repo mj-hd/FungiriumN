@@ -5,7 +5,7 @@ using MonoTouch.SpriteKit;
 
 namespace FungiriumN.Sprites.Fungi
 {
-	public class Fungi : List<IFungus>
+	public class Fungi : List<Fungus>
 	{
 		public Fungi (SKSpriteNode testTube)
 			: base ()
@@ -21,10 +21,10 @@ namespace FungiriumN.Sprites.Fungi
 			);
 		}
 
-		public new void Add (IFungus fungus)
+		public new void Add (Fungus fungus)
 		{
 			base.Add (fungus);
-			this._TestTube.AddChild (fungus.Sprite);
+			this._TestTube.AddChild (fungus);
 		}
 			
 		public void Update (double time)
@@ -40,8 +40,8 @@ namespace FungiriumN.Sprites.Fungi
 
 		protected void _UpdateForASecond ()
 		{
-			var wantedList = new List<IFungus>();
-			var divideList = new List<IFungus> ();
+			var wantedList = new List<Fungus>();
+			var divideList = new List<Fungus> ();
 
 			const int ProducingBubblePerc = 60; // %で
 			var rand = new Random ();
@@ -78,15 +78,15 @@ namespace FungiriumN.Sprites.Fungi
 			// 菌を分裂させる
 			foreach (var fungus in divideList)
 			{
-				this.Add ((IFungus)fungus.Clone ());
+				this.Add ((Fungus)fungus.Clone ());
 			}
 		}
 
-		protected void _ProduceBubble (IFungus fungus)
+		protected void _ProduceBubble (Fungus fungus)
 		{
 			var textures = SKTextureAtlas.FromName ("Fungi");
 			var bubble = new SKSpriteNode (textures.TextureNamed ("Fungus_Bubble")) {
-				Position = fungus.Sprite.Position,
+				Position = fungus.Position,
 				ZPosition = 0.1f,
 				Scale = 0.05f,
 				Alpha = 0.4f

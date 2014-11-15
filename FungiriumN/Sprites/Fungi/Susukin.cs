@@ -2,7 +2,7 @@
 
 namespace FungiriumN.Sprites.Fungi
 {
-	public class Susukin : SampleFungus, IFungus
+	public class Susukin : Fungus
 	{
 		public static Metadata Metadata = new Metadata () {
 			Name = "すすきん",
@@ -14,11 +14,9 @@ namespace FungiriumN.Sprites.Fungi
 		{
 		}
 
-		Metadata IFungus.Metadata
+		public override Metadata GetMetadata ()
 		{
-			get {
-				return Susukin.Metadata;
-			}
+			return Susukin.Metadata;
 		}
  	}
 }
