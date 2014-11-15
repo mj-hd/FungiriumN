@@ -6,7 +6,8 @@ namespace FungiriumN.Sprites.Fungi
 	{
 		public static Metadata Metadata = new Metadata () {
 			Name = "しょっかくきん 2号",
-			InternalName = "Shokkakukin2"
+			InternalName = "Shokkakukin2",
+			Power = 70
 		};
 
 		public Shokkakukin2 ()
