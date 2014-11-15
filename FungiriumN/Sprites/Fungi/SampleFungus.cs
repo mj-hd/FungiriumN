@@ -7,7 +7,10 @@ namespace FungiriumN.Sprites.Fungi
 {
 	public class SampleFungus : IFungus, ICloneable
 	{
-		static string InternalName = "SampleFungus";
+		public static Metadata Metadata = new Metadata () {
+			Name = "さんぷる菌",
+			InternalName = "SampleFungus"
+		};
 
 		#region ICloneable
 
@@ -33,9 +36,16 @@ namespace FungiriumN.Sprites.Fungi
 		{
 			this._Sprite = new SKSpriteNode ();
 
-			this._SetTexturesFromFungusID (this._InternalName);
+			this._SetTextures ();
 
 			this.State = State.Move;
+		}
+
+		Metadata IFungus.Metadata
+		{
+			get {
+				return SampleFungus.Metadata;
+			}
 		}
 
 		public SKSpriteNode Sprite
@@ -112,7 +122,6 @@ namespace FungiriumN.Sprites.Fungi
 		}
 
 
-		protected virtual string _InternalName { get { return SampleFungus.InternalName; }}
 		protected SKSpriteNode _Sprite;
 		protected State _State;
 		protected Request _Request;
@@ -122,9 +131,10 @@ namespace FungiriumN.Sprites.Fungi
 		protected SKAction _HappyAnimation;
 		protected SKAction _DeadAnimation;
 
-		protected virtual void _SetTexturesFromFungusID (string fungusId)
+		protected virtual void _SetTextures ()
 		{
 			var textures = SKTextureAtlas.FromName ("Fungi");
+			var fungusId = ((IFungus)(this)).Metadata.InternalName;
 
 			var moveTexture = new SKTexture[] {
 				textures.TextureNamed (fungusId),

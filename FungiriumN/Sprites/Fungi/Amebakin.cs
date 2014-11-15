@@ -4,14 +4,22 @@ namespace FungiriumN.Sprites.Fungi
 {
 	public class Amebakin : SampleFungus, IFungus
 	{
-		static string InternalName = "Amebakin";
+		public static Metadata Metatada = new Metadata () {
+			Name = "あめーばきん",
+			InternalName = "Amebakin"
+		};
 
 		public Amebakin ()
 			: base()
 		{
 		}
 
-		protected override string _InternalName { get { return Amebakin.InternalName; }}
+		Metadata IFungus.Metadata
+		{
+			get {
+				return Amebakin.Metadata;
+			}
+		}
  	}
 }
 

@@ -6,6 +6,10 @@ namespace FungiriumN.Sprites.Fungi
 {
 	public interface IFungus : ICloneable
 	{
+		Metadata Metadata {
+			get;
+		}
+
 		SKSpriteNode Sprite
 		{
 			get;
@@ -28,6 +32,14 @@ namespace FungiriumN.Sprites.Fungi
 
 		void Update (double delta);
 	}
+
+	// Fungusの基本情報
+	public struct Metadata
+	{
+		public string Name;
+		public string InternalName;
+		// TODO: 説明、値段など
+	};
 
 	// Fungusの状態
 	public enum State

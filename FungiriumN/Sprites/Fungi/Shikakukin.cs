@@ -4,14 +4,22 @@ namespace FungiriumN.Sprites.Fungi
 {
 	public class Shikakukin : SampleFungus, IFungus
 	{
-		static string InternalName = "Shikakukin";
+		public static Metadata Metadata = new Metadata () {
+			Name = "しかくきん",
+			InternalName = "Shikakukin"
+		};
 
 		public Shikakukin ()
 			: base ()
 		{
 		}
 
-		protected override string _InternalName { get { return Shikakukin.InternalName; }}
+		Metadata IFungus.Metadata
+		{
+			get {
+				return Shikakukin.Metadata;
+			}
+		}
 	}
 }
 
