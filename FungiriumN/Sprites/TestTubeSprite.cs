@@ -72,9 +72,9 @@ namespace FungiriumN.Sprites
 		}
 
 		// Fungus用のAddChildを定義
-		public void AddChild (Fungi.IFungus fungus)
+		public void AddChild (Fungi.Fungus fungus)
 		{
-			fungus.Sprite.ZPosition = 1.0f;
+			fungus.ZPosition = 1.0f;
 
 			this.Fungi.Add (fungus);
 		}
@@ -82,6 +82,21 @@ namespace FungiriumN.Sprites
 		public void Update (double time)
 		{
 			this.Fungi.Update (time);
+		}
+
+		public void DidContactBegin (SKPhysicsContact contact)
+		{
+
+			var a = (Fungi.Fungus)contact.BodyA.Node;
+			var b = (Fungi.Fungus)contact.BodyB.Node;
+
+			if (a.GetMetadata ().Power > b.GetMetadata ().Power) {
+				this.Fungi.Eat (a, b);
+			} else 
+				if (a.GetMetadata ().Power < b.GetMetadata ().Power){
+				this.Fungi.Eat (b, a);
+			}
+
 		}
 
 	}

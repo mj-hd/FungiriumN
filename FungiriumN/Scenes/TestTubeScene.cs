@@ -3,32 +3,36 @@ using System.Drawing;
 
 using MonoTouch.Foundation;
 using MonoTouch.SpriteKit;
+using MonoTouch.CoreGraphics;
 using MonoTouch.UIKit;
 
 namespace FungiriumN.Scenes
 {
-	public class TestTubeScene : SKScene
+	public class TestTubeScene : ZoomScrollScene
 	{
-		protected ZoomScrollScene MainView;
 		protected Sprites.TestTubeSprite TestTube;
 
 		public TestTubeScene (SizeF size) : base (size)
 		{
 			BackgroundColor = new UIColor (0.5f, 0.5f, 0.5f, 1.0f);
 
-			this.MainView = new ZoomScrollScene (size);
+			// Physicsの設定
+			this.PhysicsWorld.ContactDelegate = new PhysicsDelegate ((contact) => this._DidBeginContact (contact));
 
 			// 試験管を追加
 			this.TestTube = new Sprites.TestTubeSprite () {
 				Position = new PointF (Frame.X + Frame.Width / 2, Frame.Y + Frame.Height / 2),
 			};
 
-			this.MainView.AddContainer (this.TestTube);
+			this.AddContainer (this.TestTube);
 
-			AddChild (this.MainView);
-
-			var sampleFungus = new Sprites.Fungi.SampleFungus();
+			var sampleFungus = new Sprites.Fungi.Susukin();
 			this.TestTube.AddChild (sampleFungus);
+
+			var sampleFungus2 = new Sprites.Fungi.Rensakin () {
+				Position = new PointF(0.0f, -50.0f)
+			};
+			this.TestTube.AddChild (sampleFungus2);
 		}
 
 		public override void Update (double currentTime)
@@ -40,9 +44,30 @@ namespace FungiriumN.Scenes
 		public override void DidMoveToView (SKView view)
 		{
 			base.DidMoveToView (view);
+		}
 
-			// HACK: 無理やりthis.ContainerのDidMoveToViewを呼び出している
-			this.MainView.DidMoveToView (view);
+
+		protected virtual void _DidBeginContact (SKPhysicsContact contact)
+		{
+			this.TestTube.DidContactBegin (contact);
+		}
+
+
+		class PhysicsDelegate : SKPhysicsContactDelegate {
+
+			public PhysicsDelegate (Action<SKPhysicsContact> action)
+			{
+				this.DidBeginContactAction = action;
+			}
+
+			public Action<SKPhysicsContact> DidBeginContactAction;
+
+			public override void DidBeginContact (SKPhysicsContact contact)
+			{
+				if (DidBeginContactAction != null)
+					DidBeginContactAction (contact);
+			}
+
 		}
 	}
 }

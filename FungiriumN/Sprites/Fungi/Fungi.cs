@@ -26,6 +26,13 @@ namespace FungiriumN.Sprites.Fungi
 			base.Add (fungus);
 			this._TestTube.AddChild (fungus);
 		}
+
+		public void Eat (Fungus strong, Fungus weak)
+		{
+			weak.State = State.Dead;
+			strong.State = State.Eat;
+			strong.Energy += (float)weak.GetMetadata ().Calorie;
+		}
 			
 		public void Update (double time)
 		{
