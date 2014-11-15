@@ -10,7 +10,9 @@ namespace FungiriumN.Sprites.Fungi
 		public static Metadata Metadata = new Metadata () {
 			Name = "さんぷる菌",
 			InternalName = "SampleFungus",
-			Power = 100
+			Power = 100,
+			Calorie = 100,
+			Category = Metadata.FungusCategory | (1 << 7)
 		};
 
 		public SampleFungus ()

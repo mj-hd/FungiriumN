@@ -10,7 +10,9 @@ namespace FungiriumN.Sprites.Fungi
 		public static Metadata Metadata = new Metadata () {
 			Name = "さんぷる菌",
 			InternalName = "SampleFungus",
-			Power = 100
+			Power = 100,
+			Calorie = 100,
+			Category = Metadata.FungusCategory | (1 << 1)
 		};
 
 		#region ICloneable
@@ -164,6 +166,14 @@ namespace FungiriumN.Sprites.Fungi
 			this.NormalTexture = moveTexture [0];
 			this.Texture = moveTexture [0];
 			this.Size = moveTexture [0].Size;
+
+			var body = SKPhysicsBody.CreateRectangularBody (this.Size);
+			body.CategoryBitMask = this.GetMetadata ().Category;
+			body.ContactTestBitMask = Metadata.FungusCategory;
+			body.CollisionBitMask = 0;
+			body.AffectedByGravity = false;
+
+			this.PhysicsBody = body;
 		}
 
 		protected virtual void _SwitchAnimation (State state)
@@ -242,6 +252,10 @@ namespace FungiriumN.Sprites.Fungi
 		public string Name;
 		public string InternalName;
 		public int Power;
+		public int Calorie;
+		public uint Category;
+
+		public const uint FungusCategory = (1 << 0);
 		// TODO: 説明、値段など
 	};
 
