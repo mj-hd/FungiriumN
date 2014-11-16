@@ -104,26 +104,6 @@ namespace FungiriumN.Scenes
 
 			}
 		}
-
-		public override void TouchesBegan (MonoTouch.Foundation.NSSet touches, UIEvent evt)
-		{
-			base.TouchesBegan (touches, evt);
-		}
-
-		public override void TouchesMoved (MonoTouch.Foundation.NSSet touches, UIEvent evt)
-		{
-			base.TouchesMoved (touches, evt);
-		}
-
-		public override void TouchesEnded (MonoTouch.Foundation.NSSet touches, UIEvent evt)
-		{
-			base.TouchesEnded (touches, evt);
-		}
-
-		public override void TouchesCancelled (MonoTouch.Foundation.NSSet touches, UIEvent evt)
-		{
-			base.TouchesCancelled (touches, evt);
-		}
 	}
 }
 

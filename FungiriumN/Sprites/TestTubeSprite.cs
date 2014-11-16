@@ -99,15 +99,6 @@ namespace FungiriumN.Sprites
 
 		}
 
-		public override void TouchesBegan (MonoTouch.Foundation.NSSet touches, UIEvent evt)
-		{
-			base.TouchesBegan (touches, evt);
-
-			var touch = (UITouch)touches.AnyObject;
-
-			this.Fungi.Treat (touch.LocationInNode (this));
-		}
-
 	}
 }
 

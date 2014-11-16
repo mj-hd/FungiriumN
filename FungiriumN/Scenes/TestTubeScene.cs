@@ -39,23 +39,22 @@ namespace FungiriumN.Scenes
 		public override void DidMoveToView (SKView view)
 		{
 			base.DidMoveToView (view);
+
+			this.View.AddGestureRecognizer (new UITapGestureRecognizer((sender) => {
+
+				var p = sender.LocationInView (this.View);
+				var locationInNode = this.ConvertPointFromView (p);
+				var locationInTestTube = this.ConvertPointToNode (locationInNode, this.TestTube);
+
+				this.TestTube.Fungi.Treat (locationInTestTube);
+
+			}));
 		}
 
 
 		protected virtual void _DidBeginContact (SKPhysicsContact contact)
 		{
 			this.TestTube.DidContactBegin (contact);
-		}
-
-		public override void TouchesBegan (NSSet touches, UIEvent evt)
-		{
-			base.TouchesBegan (touches, evt);
-
-			var touch = (UITouch)touches.AnyObject;
-
-			if (this.TestTube.ContainsPoint (touch.LocationInView (this.View))) {
-				this.TestTube.TouchesBegan (touches, evt);
-			}
 		}
 
 
