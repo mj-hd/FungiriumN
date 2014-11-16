@@ -28,11 +28,6 @@ namespace FungiriumN.Scenes
 
 			var sampleFungus = new Sprites.Fungi.Susukin();
 			this.TestTube.AddChild (sampleFungus);
-
-			var sampleFungus2 = new Sprites.Fungi.Rensakin () {
-				Position = new PointF(0.0f, -50.0f)
-			};
-			this.TestTube.AddChild (sampleFungus2);
 		}
 
 		public override void Update (double currentTime)
@@ -50,6 +45,17 @@ namespace FungiriumN.Scenes
 		protected virtual void _DidBeginContact (SKPhysicsContact contact)
 		{
 			this.TestTube.DidContactBegin (contact);
+		}
+
+		public override void TouchesBegan (NSSet touches, UIEvent evt)
+		{
+			base.TouchesBegan (touches, evt);
+
+			var touch = (UITouch)touches.AnyObject;
+
+			if (this.TestTube.ContainsPoint (touch.LocationInView (this.View))) {
+				this.TestTube.TouchesBegan (touches, evt);
+			}
 		}
 
 

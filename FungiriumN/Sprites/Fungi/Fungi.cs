@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 
 using MonoTouch.SpriteKit;
@@ -32,6 +33,17 @@ namespace FungiriumN.Sprites.Fungi
 			weak.State = State.Dead;
 			strong.State = State.Eat;
 			strong.Energy += (float)weak.GetMetadata ().Calorie;
+		}
+
+		public void Treat (PointF p)
+		{
+			foreach (var fungus in this)
+			{
+				if (fungus.ContainsPoint (p)) {
+					// TODO: 幸福値の操作など
+					fungus.State = State.Happy;
+				}
+			}
 		}
 			
 		public void Update (double time)
