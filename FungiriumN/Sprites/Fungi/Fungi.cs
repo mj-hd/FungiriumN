@@ -77,6 +77,8 @@ namespace FungiriumN.Sprites.Fungi
 
 					divideList.Add (fungus);
 
+					fungus.Request = Request.None;
+
 					break;
 				}
 
