@@ -40,6 +40,8 @@ namespace FungiriumN.Sprites.Fungi
 		{
 			this._SetTextures ();
 
+			this._MoveAround (1.0f);
+
 			this.State = State.Move;
 		}
 
@@ -103,7 +105,7 @@ namespace FungiriumN.Sprites.Fungi
 				}
 
 				// 分裂
-				const int DividePerc = 20; // %
+				const int DividePerc = 10; // %
 
 				if (rand.Next(100) < DividePerc) {
 
