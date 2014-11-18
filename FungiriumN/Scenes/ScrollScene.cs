@@ -46,7 +46,7 @@ namespace FungiriumN.Scenes
 			}));
 		}
 
-		protected virtual void _OnPanGesture (UIPanGestureRecognizer sender)
+		private void _OnPanGesture (UIPanGestureRecognizer sender)
 		{
 
 			if (sender.State == UIGestureRecognizerState.Began) {

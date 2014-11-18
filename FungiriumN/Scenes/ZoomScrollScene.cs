@@ -25,7 +25,7 @@ namespace FungiriumN.Scenes
 				}));
 		}
 
-		protected void _OnPinchGesture(UIPinchGestureRecognizer sender)
+		private void _OnPinchGesture(UIPinchGestureRecognizer sender)
 		{
 
 			if (sender.State == UIGestureRecognizerState.Began) {
