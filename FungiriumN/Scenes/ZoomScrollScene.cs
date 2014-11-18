@@ -6,37 +6,12 @@ using MonoTouch.UIKit;
 
 namespace FungiriumN.Scenes
 {
-	public class ZoomScrollScene : SKScene
+	public class ZoomScrollScene : ScrollScene
 	{
-		public SKSpriteNode Container;
-
 		public ZoomScrollScene (SizeF size)
 			: base (size)
 		{
-
-		}
-
-		public void AddContainer (SKSpriteNode container)
-		{
-
-			this.Container = container;
-
-			base.AddChild (container);
-
-		}
-
-		public override void AddChild (SKNode child)
-		{
-
-			this.Container.AddChild (child);
-
-		}
-
-		public override SKNode[] Children {
-			get
-			{
-				return this.Container.Children;
-			}
+			this.ScrollDirection = ScrollDirection.Both;
 		}
 
 		public override void DidMoveToView (SKView view)
@@ -44,39 +19,10 @@ namespace FungiriumN.Scenes
 			base.DidMoveToView (view);
 
 			// Recognizerを追加
-			view.AddGestureRecognizer (new UIPanGestureRecognizer((sender) => 
-				{
-					this._OnPanGesture (sender);
-				}));
 			view.AddGestureRecognizer (new UIPinchGestureRecognizer((sender) =>
 				{
 					this._OnPinchGesture (sender);
 				}));
-		}
-
-		protected void _OnPanGesture(UIPanGestureRecognizer sender)
-		{
-
-			if (sender.State == UIGestureRecognizerState.Began) {
-
-				sender.SetTranslation (new PointF(0.0f, 0.0f), this.View);
-
-			} else if (sender.State == UIGestureRecognizerState.Changed) {
-
-				PointF basePoint = sender.TranslationInView (this.View);
-				PointF contPoint = this.Container.Position;
-
-				basePoint = new PointF (-1 * basePoint.X, basePoint.Y);
-
-				this.Container.Position = new PointF(contPoint.X - basePoint.X, contPoint.Y - basePoint.Y);
-
-				sender.SetTranslation (new PointF (0.0f, 0.0f), this.View);
-
-			} else if (sender.State == UIGestureRecognizerState.Ended) {
-
-				// 特になし
-
-			}
 		}
 
 		protected void _OnPinchGesture(UIPinchGestureRecognizer sender)
