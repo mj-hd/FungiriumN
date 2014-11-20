@@ -119,6 +119,27 @@
     <Compile Include="Sprites\Fungi\ChochinkinM.cs" />
     <Compile Include="Sprites\Fungi\Fungi.cs" />
     <Compile Include="Sprites\Fungi\Fungus.cs" />
+    <Compile Include="Scenes\ScrollScene.cs" />
+    <Compile Include="RefrigeratorTableController.cs" />
+    <Compile Include="RefrigeratorTableController.designer.cs">
+      <DependentUpon>RefrigeratorTableController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShopTableController.cs" />
+    <Compile Include="ShopTableController.designer.cs">
+      <DependentUpon>ShopTableController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemTableController.cs" />
+    <Compile Include="ItemTableController.designer.cs">
+      <DependentUpon>ItemTableController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CollectionTableController.cs" />
+    <Compile Include="CollectionTableController.designer.cs">
+      <DependentUpon>CollectionTableController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADBanner.cs" />
+    <Compile Include="ADBanner.designer.cs">
+      <DependentUpon>ADBanner.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
@@ -126,7 +147,6 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Resources\Fungi.atlas\" />
-    <Folder Include="Resources\UI.atlas\" />
     <Folder Include="Sprites\" />
     <Folder Include="Scenes\" />
     <Folder Include="Sprites\Fungi\" />
@@ -193,18 +213,5 @@
     <AtlasTexture Include="Resources\Fungi.atlas\Susukin_Eat2.png" />
     <AtlasTexture Include="Resources\Fungi.atlas\Susukin_Happy.png" />
     <AtlasTexture Include="Resources\Fungi.atlas\Susukin_Move.png" />
-    <AtlasTexture Include="Resources\UI.atlas\BigShadow.png" />
-    <AtlasTexture Include="Resources\UI.atlas\Collection1.png" />
-    <AtlasTexture Include="Resources\UI.atlas\Collection2.png" />
-    <AtlasTexture Include="Resources\UI.atlas\Item1.png" />
-    <AtlasTexture Include="Resources\UI.atlas\Item2.png" />
-    <AtlasTexture Include="Resources\UI.atlas\PaperShadow.png" />
-    <AtlasTexture Include="Resources\UI.atlas\Put1.png" />
-    <AtlasTexture Include="Resources\UI.atlas\Put2.png" />
-    <AtlasTexture Include="Resources\UI.atlas\PutLabel.png" />
-    <AtlasTexture Include="Resources\UI.atlas\Ruler.png" />
-    <AtlasTexture Include="Resources\UI.atlas\Shop1.png" />
-    <AtlasTexture Include="Resources\UI.atlas\Shop2.png" />
-    <AtlasTexture Include="Resources\UI.atlas\SmallShadow.png" />
   </ItemGroup>
 </Project>

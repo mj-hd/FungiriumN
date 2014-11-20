@@ -26,6 +26,7 @@ namespace FungiriumN
 			// Configure the view.
 			var skView = (SKView)View;
 			skView.ShowsFPS = true;
+			skView.ShowsDrawCount = true;
 			skView.ShowsNodeCount = true;
 
 			// Create and configure the scene.
@@ -34,6 +35,7 @@ namespace FungiriumN
 
 			// Present the scene.
 			skView.PresentScene (scene);
+
 		}
 
 		public override bool ShouldAutorotate ()
