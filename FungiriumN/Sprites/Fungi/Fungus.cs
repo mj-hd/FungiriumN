@@ -249,16 +249,16 @@ namespace FungiriumN.Sprites.Fungi
 	}
 
 	// Fungusの基本情報
-	public struct Metadata
+	public struct Metadata : FungiriumN.IMetadata
 	{
-		public string Name;
-		public string InternalName;
+		public string Name { get; set; }
+		public string InternalName { get; set; }
+		public string Description { get; set; }
 		public int Power;
 		public int Calorie;
 		public uint Category;
 
 		public const uint FungusCategory = (1 << 0);
-		// TODO: 説明、値段など
 	};
 
 	// Fungusの状態

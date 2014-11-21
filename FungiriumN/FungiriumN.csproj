@@ -140,6 +140,9 @@
     <Compile Include="ADBanner.designer.cs">
       <DependentUpon>ADBanner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\Inventory.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="IMetadata.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
@@ -150,6 +153,7 @@
     <Folder Include="Sprites\" />
     <Folder Include="Scenes\" />
     <Folder Include="Sprites\Fungi\" />
+    <Folder Include="Items\" />
   </ItemGroup>
   <ItemGroup>
     <AtlasTexture Include="Resources\Fungi.atlas\Amebakin.png" />
