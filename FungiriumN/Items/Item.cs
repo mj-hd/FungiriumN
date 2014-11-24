@@ -8,7 +8,8 @@ namespace FungiriumN.Items
 			Name = "さんぷるあいてむ",
 			InternalName = "SampleItem",
 			Description = "これはサンプルのアイテムです。",
-			Price = 100
+			Price = 100,
+			Type = Type.Room
 		};
 
 		#region ICloneable
@@ -48,6 +49,13 @@ namespace FungiriumN.Items
 		public string Description { get; set; }
 	
 		public int Price;
+		public Type Type;
+	}
+
+	public enum Type
+	{
+		Refrigerated,
+		Room
 	}
 }
 
