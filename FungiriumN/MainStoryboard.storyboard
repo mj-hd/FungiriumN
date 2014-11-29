@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" id="16" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" customClass="ADBanner" alpha="1">
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" id="16" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" customClass="ADBanner" alpha="0.0" hidden="YES">
                                 <rect key="frame" x="0.0" y="520" width="320" height="50"/>
                             </adBannerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="27" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
@@ -68,6 +68,18 @@
                                     <segue destination="65" kind="push" id="73"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="113" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="263" y="60" width="46" height="30"/>
+                                <state key="normal" title="統計">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted"/>
+                                <state key="selected"/>
+                                <state key="disabled"/>
+                                <connections>
+                                    <segue destination="123" kind="push" id="131"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -76,6 +88,7 @@
                         <outlet property="ShopButton" destination="29" id="name-outlet-29"/>
                         <outlet property="CollectionButton" destination="30" id="name-outlet-30"/>
                         <outlet property="AD" destination="16" id="name-outlet-16"/>
+                        <outlet property="StatisticsButton" destination="113" id="name-outlet-113"/>
                     </connections>
                     <navigationItem title="試験管" id="102" key="navigationItem"/>
                 </viewController>
@@ -217,6 +230,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-40" y="243"/>
+        </scene>
+        <scene sceneID="122">
+            <objects>
+                <tableViewController id="123" sceneMemberID="viewController" title="統計" customClass="StatisticsTableController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="124">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="127">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="127" id="128">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="123" id="125"/>
+                            <outlet property="delegate" destination="123" id="126"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="StatisticsTable" destination="124" id="name-outlet-124"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="129" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446" y="953"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

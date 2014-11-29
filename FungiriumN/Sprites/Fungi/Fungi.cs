@@ -26,6 +26,14 @@ namespace FungiriumN.Sprites.Fungi
 		{
 			base.Add (fungus);
 			this._TestTube.AddChild (fungus);
+			Population.Instance.Increment (fungus.GetType ());
+		}
+
+		public new void Remove (Fungus fungus)
+		{
+			base.Remove (fungus);
+
+			Population.Instance.Decrement (fungus.GetType ());
 		}
 
 		public void Eat (Fungus strong, Fungus weak)

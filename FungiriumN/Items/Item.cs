@@ -2,36 +2,24 @@
 
 namespace FungiriumN.Items
 {
-	public class Item : ICloneable
+	public class Item
 	{
 		public static Metadata Metadata = new Metadata () {
 			Name = "さんぷるあいてむ",
 			InternalName = "SampleItem",
 			Description = "これはサンプルのアイテムです。",
 			Price = 100,
-			Type = Type.Room
+			PreservationStyle = PreservationStyle.Room
 		};
-
-		#region ICloneable
-
-		object ICloneable.Clone()
-		{
-			return this.Clone ();
-		}
-
-		public virtual Item Clone()
-		{
-			Item instance = (Item)Activator.CreateInstance (this.GetType ());
-
-			// TODO: コピー処理
-
-			return instance;
-		}
-
-		#endregion
 
 		public Item ()
 		{
+
+		}
+
+		public virtual Metadata GetMetadata ()
+		{
+			return Item.Metadata;
 		}
 
 		public virtual bool UseToTestTube (Sprites.TestTubeSprite testTube)
@@ -40,6 +28,8 @@ namespace FungiriumN.Items
 
 			return true;
 		}
+
+		public int Count = 0;
 	}
 
 	public struct Metadata : FungiriumN.IMetadata
@@ -49,10 +39,10 @@ namespace FungiriumN.Items
 		public string Description { get; set; }
 	
 		public int Price;
-		public Type Type;
+		public PreservationStyle PreservationStyle;
 	}
 
-	public enum Type
+	public enum PreservationStyle
 	{
 		Refrigerated,
 		Room

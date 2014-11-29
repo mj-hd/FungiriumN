@@ -13,39 +13,27 @@ namespace FungiriumN
 		public ADBanner (IntPtr handle) : base (handle)
 		{
 			this.WillLoad += (sender, e) => {
-				this._hidden = true;
-				{
-					var newOne = this.Frame;
-					newOne.Offset (new PointF (0, this.Frame.Height));
-					this.Frame = newOne;
+				this.Hidden = true;
+				this.Alpha = 0.0f;
+			};
+
+			this.AdLoaded += (sender, e) => { 
+				if (this.Hidden) {
+					this.Hidden = false;
+					UIView.Animate (1.0, () => {
+						this.Alpha = 1.0f;
+					});
 				}
 			};
 
-			this.AdLoaded += (sender, e) => 
-				UIView.Animate (1.0, () => {
-					if (this._hidden) {
-
-						var newOne = this.Frame;
-						newOne.Offset (new PointF(0, -this.Frame.Height));
-						this.Frame = newOne;
-
-						this._hidden = false;
-					}
-				});
-
-			this.FailedToReceiveAd += (sender, e) => 
-				UIView.Animate (1.0, () => {
-					if (!this._hidden) {
-
-						var newOne = this.Frame;
-						newOne.Offset (new PointF(0, this.Frame.Height));
-						this.Frame = newOne;
-
-						this._hidden = true;
-					}
-				});
+			this.FailedToReceiveAd += (sender, e) => {
+		 		if (!this.Hidden) {
+					this.Hidden = true;
+					UIView.Animate (1.0, () => {
+						this.Alpha = 0.0f;
+					});
+				}
+			};
 		}
-
-		private bool _hidden;
 	}
 }

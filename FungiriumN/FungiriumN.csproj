@@ -91,6 +91,16 @@
     <BundleResource Include="Resources\Default-568h%402x.png" />
     <BundleResource Include="Resources\TestTube.png" />
     <BundleResource Include="Resources\TestTubeSolution.png" />
+    <BundleResource Include="Resources\Fungi\Amebakin.png" />
+    <BundleResource Include="Resources\Fungi\Chochinkin_m.png" />
+    <BundleResource Include="Resources\Fungi\Dropkin.png" />
+    <BundleResource Include="Resources\Fungi\Kuragekin.png" />
+    <BundleResource Include="Resources\Fungi\Rensakin.png" />
+    <BundleResource Include="Resources\Fungi\SampleFungus.png" />
+    <BundleResource Include="Resources\Fungi\Sankakukin.png" />
+    <BundleResource Include="Resources\Fungi\Shikakukin.png" />
+    <BundleResource Include="Resources\Fungi\Shokkakukin2.png" />
+    <BundleResource Include="Resources\Fungi\Susukin.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -143,6 +153,14 @@
     <Compile Include="Items\Inventory.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="IMetadata.cs" />
+    <Compile Include="Items\RefrigeratedFungus.cs" />
+    <Compile Include="StatisticsTableController.cs" />
+    <Compile Include="StatisticsTableController.designer.cs">
+      <DependentUpon>StatisticsTableController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\Greenbull.cs" />
+    <Compile Include="Items\Yellowbull.cs" />
+    <Compile Include="Sprites\Fungi\Population.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
@@ -154,6 +172,7 @@
     <Folder Include="Scenes\" />
     <Folder Include="Sprites\Fungi\" />
     <Folder Include="Items\" />
+    <Folder Include="Resources\Fungi\" />
   </ItemGroup>
   <ItemGroup>
     <AtlasTexture Include="Resources\Fungi.atlas\Amebakin.png" />
