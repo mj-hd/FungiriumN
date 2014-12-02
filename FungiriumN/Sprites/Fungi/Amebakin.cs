@@ -7,8 +7,10 @@ namespace FungiriumN.Sprites.Fungi
 		public static Metadata Metatada = new Metadata () {
 			Name = "あめーばきん",
 			InternalName = "Amebakin",
+			Description = "アメーバのようにうねうねとした菌",
 			Power = 100,
 			Calorie = 20,
+			Price = 100,
 			Category = Metadata.FungusCategory | (1 << 2)
 		};
 

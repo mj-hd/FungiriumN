@@ -7,8 +7,10 @@ namespace FungiriumN.Sprites.Fungi
 		public static Metadata Metadata = new Metadata () {
 			Name = "くらげきん",
 			InternalName = "Kuragekin",
+			Description = "くらげのような見た目をしている菌。海に生息している。",
 			Power = 30,
 			Calorie = 40,
+			Price = 110,
 			Category = Metadata.FungusCategory | (1 << 5)
 		};
 
