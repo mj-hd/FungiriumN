@@ -28,7 +28,8 @@ namespace FungiriumN
 			var refrigerator = Items.Refrigerator.Instance;
 
 			var stat = refrigerator.GetValueAt (indexPath.Item);
-			var item = stat.Instance;
+			var item = stat.Instance as Items.RefrigeratedFungus;
+			var meta = Sprites.Fungi.Population.Instance [item.FungusType].Instance.GetMetadata ();
 			var fungusImage = UIImage.FromFile ("Fungi/"+item.GetMetadata().InternalName+".png");
 
 			var cell = (RefrigeratorTableCell)tableView.DequeueReusableCell (RefrigeratorTableCell.Key);
@@ -36,6 +37,8 @@ namespace FungiriumN
 			cell.NameLabel.Text = item.GetMetadata ().Name;
 			cell.CountLabel.Text = stat.Count.ToString ();
 			cell.FungusIcon.Image = fungusImage;
+			cell.CalorieLabel.Text = meta.Calorie.ToString() + "cal";
+			cell.PowerLabel.Text = meta.Power.ToString ();
 
 			return cell;
 		}

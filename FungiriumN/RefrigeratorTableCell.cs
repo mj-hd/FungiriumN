@@ -38,6 +38,14 @@ namespace FungiriumN
 				this._PutButton = value;
 			}
 		}
+		public UILabel PowerLabel {
+			get {
+				return this._PowerLabel;
+			}
+			set {
+				this._PowerLabel = value;
+			}
+		}
 		public UILabel CountLabel { 
 			get {
 				return this._CountLabel;
