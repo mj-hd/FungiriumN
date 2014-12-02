@@ -127,7 +127,7 @@
                                             <state key="selected"/>
                                             <state key="disabled"/>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="185" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="185" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" clipsSubviews="YES">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" minimumFontSize="10" id="204" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
@@ -233,7 +233,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="187" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="187" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" clipsSubviews="YES">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" minimumFontSize="10" id="217" key="tableHeaderView" fixedFrame="YES">
@@ -302,7 +302,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="186" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="186" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" clipsSubviews="YES">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" minimumFontSize="10" id="212" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
@@ -376,7 +376,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="182" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
                                             <rect key="frame" x="-3" y="-90" width="62" height="55"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="183" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="183" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" clipsSubviews="YES">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Here is the description of fungus." lineBreakMode="characterWrap" minimumFontSize="10" id="194" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="3">
