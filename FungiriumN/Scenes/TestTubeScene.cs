@@ -29,6 +29,9 @@ namespace FungiriumN.Scenes
 			var sampleFungus = new Sprites.Fungi.Susukin();
 			this.TestTube.AddChild (sampleFungus);
 
+			// DEBUG
+			Items.Refrigerator.Instance.Increment (typeof(Sprites.Fungi.Amebakin));
+
 		}
 
 		public override void Update (double currentTime)

@@ -2,6 +2,7 @@ using System;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using MonoTouch.ObjCRuntime;
 using System.CodeDom.Compiler;
 
 namespace FungiriumN
@@ -28,11 +29,12 @@ namespace FungiriumN
 
 			var stat = refrigerator.GetValueAt (indexPath.Item);
 			var item = stat.Instance;
+			var fungusImage = UIImage.FromFile ("Fungi/"+item.GetMetadata().InternalName+".png");
 
-			var cell = new UITableViewCell (UITableViewCellStyle.Subtitle, item.GetMetadata ().InternalName);
+			var cell = (RefrigeratorTableCell)tableView.DequeueReusableCell (RefrigeratorTableCell.Key);
 
-			cell.TextLabel.Text = item.GetMetadata ().Name;
-			cell.DetailTextLabel.Text = item.Count.ToString ();
+			cell.NameLabel.Text = item.GetMetadata ().Name;
+			cell.FungusIcon.Image = fungusImage;
 
 			return cell;
 		}

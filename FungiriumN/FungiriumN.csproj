@@ -162,6 +162,22 @@
     <Compile Include="Items\Yellowbull.cs" />
     <Compile Include="Sprites\Fungi\Population.cs" />
     <Compile Include="Items\Refrigerator.cs" />
+    <Compile Include="RefrigeratorTableCell.cs" />
+    <Compile Include="RefrigeratorTableCell.designer.cs">
+      <DependentUpon>RefrigeratorTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShopTableCell.cs" />
+    <Compile Include="ShopTableCell.designer.cs">
+      <DependentUpon>ShopTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemTableCell.cs" />
+    <Compile Include="ItemTableCell.designer.cs">
+      <DependentUpon>ItemTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CollectionTableCell.cs" />
+    <Compile Include="CollectionTableCell.designer.cs">
+      <DependentUpon>CollectionTableCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

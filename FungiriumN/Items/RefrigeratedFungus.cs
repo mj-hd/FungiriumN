@@ -4,16 +4,14 @@ namespace FungiriumN.Items
 {
 	public class RefrigeratedFungus: Item
 	{
-		public static Metadata Metadata = new Metadata () {
-			Name = Sprites.Fungi.SampleFungus.Metadata.Name,
-			InternalName = Sprites.Fungi.SampleFungus.Metadata.InternalName,
-			Description = Sprites.Fungi.SampleFungus.Metadata.Description,
-			Price = 50,
-			PreservationStyle = PreservationStyle.Refrigerated
-		};
-
 		public RefrigeratedFungus ()
+			: this (typeof(Sprites.Fungi.SampleFungus))
 		{
+		}
+		public RefrigeratedFungus (Type type)
+			: base ()
+		{
+			this._FungusType = type;
 		}
 
 		public override bool UseToTestTube (Sprites.TestTubeSprite testTube)
@@ -24,6 +22,29 @@ namespace FungiriumN.Items
 
 			return true;
 		}
+
+		public virtual Type FungusType
+		{
+			get {
+				return this._FungusType;
+			}
+		}
+
+		public override Metadata GetMetadata ()
+		{
+			var metadata = new Metadata ();
+			var meta = Sprites.Fungi.Population.Instance [this._FungusType].Instance.GetMetadata ();
+
+			metadata.Name = meta.Name;
+			metadata.InternalName = meta.InternalName;
+			metadata.Description = meta.Description;
+			metadata.Price = meta.Price;
+			metadata.PreservationStyle = PreservationStyle.Refrigerated;
+
+			return metadata;
+		}
+
+		protected Type _FungusType;
 
 
 	}

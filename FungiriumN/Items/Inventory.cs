@@ -31,9 +31,9 @@ namespace FungiriumN.Items
 
 		public Inventory ()
 		{
-			this._statistics = new Statistics[ItemType.GetLength (0)];
+			this._statistics = new Statistics[this.ItemType.GetLength (0)];
 
-			foreach (var type in ItemType) {
+			foreach (var type in this.ItemType) {
 				this [type] = new Statistics ((Item)Activator.CreateInstance (type)) {
 					Count = 0,
 				};
@@ -43,9 +43,9 @@ namespace FungiriumN.Items
 
 		public void Increment (Type type)
 		{
-			for (int i = 0; i < ItemType.GetLength(0); i++)
+			for (int i = 0; i < this.ItemType.GetLength(0); i++)
 			{
-				if (type == ItemType[i]) {
+				if (type == this.ItemType[i]) {
 					this [type].Count++;
 					return;
 				}
@@ -56,9 +56,9 @@ namespace FungiriumN.Items
 
 		public void Decrement (Type type)
 		{
-			for (int i = 0; i < ItemType.GetLength(0); i++)
+			for (int i = 0; i < this.ItemType.GetLength(0); i++)
 			{
-				if (type == ItemType[i]) {
+				if (type == this.ItemType[i]) {
 					this [type].Count--;
 					return;
 				}
@@ -69,7 +69,7 @@ namespace FungiriumN.Items
 
 		public bool Contains (Type type)
 		{
-			foreach (var t in ItemType)
+			foreach (var t in this.ItemType)
 			{
 				if (t == type)
 					return true;
@@ -80,7 +80,7 @@ namespace FungiriumN.Items
 
 		public bool Reset (Type type)
 		{
-			foreach (var t in ItemType)
+			foreach (var t in this.ItemType)
 			{
 				if (t == type) {
 
@@ -97,7 +97,7 @@ namespace FungiriumN.Items
 
 		public void ResetAll ()
 		{
-			foreach (var t in ItemType)
+			foreach (var t in this.ItemType)
 			{
 				this [t].Count = 0;
 			}
@@ -115,9 +115,9 @@ namespace FungiriumN.Items
 
 		public void SetValue (Type type, Statistics value)
 		{
-			for (int i = 0; i < ItemType.GetLength (0); i++)
+			for (int i = 0; i < this.ItemType.GetLength (0); i++)
 			{
-				if (ItemType[i] == type) {
+				if (this.ItemType[i] == type) {
 					this._statistics [i] = value;
 					return;
 				}
@@ -128,9 +128,9 @@ namespace FungiriumN.Items
 
 		public Statistics GetValue(Type type)
 		{
-			for (int i = 0; i < ItemType.GetLength(0); i++ )
+			for (int i = 0; i < this.ItemType.GetLength(0); i++ )
 			{
-				if (ItemType[i] == type)
+				if (this.ItemType[i] == type)
 				{
 					return this._statistics [i];
 				}
@@ -141,7 +141,7 @@ namespace FungiriumN.Items
 
 		public Statistics GetValueAt(int i)
 		{
-			if ((i < 0) || (i >= ItemType.GetLength (0)))
+			if ((i < 0) || (i >= this.ItemType.GetLength (0)))
 				throw new IndexOutOfRangeException ("指定されたアイテムが見つかりませんでした。");
 
 			return this._statistics [i];
@@ -150,7 +150,7 @@ namespace FungiriumN.Items
 		public int Count
 		{
 			get {
-				return ItemType.GetLength (0);
+				return this.ItemType.GetLength (0);
 			}
 		}
 
@@ -161,7 +161,7 @@ namespace FungiriumN.Items
 
 		public IEnumerator<Statistics> GetEnumerator ()
 		{
-			foreach (var t in ItemType)
+			foreach (var t in this.ItemType)
 			{
 				yield return this [t];
 			}

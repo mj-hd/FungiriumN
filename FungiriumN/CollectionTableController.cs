@@ -26,13 +26,33 @@ namespace FungiriumN
 			var population = Sprites.Fungi.Population.Instance;
 			var stat = population.GetValueAt (indexPath.Item);
 			var fungus = stat.Instance;
+			var fungusImage = UIImage.FromFile ("Fungi/"+fungus.GetMetadata().InternalName+".png");
 
-			var cell = new UITableViewCell (UITableViewCellStyle.Subtitle, fungus.GetMetadata ().InternalName);
+			var cell = tableView.DequeueReusableCell (CollectionTableCell.Key) as CollectionTableCell;
 
-			cell.TextLabel.Text = fungus.GetMetadata ().Name;
-			cell.DetailTextLabel.Text = stat.IsRevealed.ToString ();
+			cell.NameLabel.Text = stat.Instance.GetMetadata ().Name;
+			cell.FungusIcon.Image = fungusImage;
+			cell.DetailLabel.Text = stat.Instance.GetMetadata ().Description;
 
 			return cell;
+		}
+
+		private int _selectedIndex = 0;
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{
+			this._selectedIndex = indexPath.Item;
+
+			tableView.BeginUpdates ();
+			tableView.EndUpdates ();
+		}
+
+		public override float GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+		{
+			var isSelected = (indexPath.Item == this._selectedIndex);
+			if (isSelected) {
+				return 150.0f;
+			}
+			return 50.0f;
 		}
 
 	}
