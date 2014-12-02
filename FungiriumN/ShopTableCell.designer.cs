@@ -16,29 +16,53 @@ namespace FungiriumN
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton BuyButton { get; set; }
+		UIButton _BuyButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ItemIcon { get; set; }
+		UILabel _CountLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel Name { get; set; }
+		UILabel _DetailLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView _ItemIcon { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel _NameLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel _PriceLabel { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (BuyButton != null) {
-				BuyButton.Dispose ();
-				BuyButton = null;
+			if (_BuyButton != null) {
+				_BuyButton.Dispose ();
+				_BuyButton = null;
 			}
-			if (ItemIcon != null) {
-				ItemIcon.Dispose ();
-				ItemIcon = null;
+			if (_CountLabel != null) {
+				_CountLabel.Dispose ();
+				_CountLabel = null;
 			}
-			if (Name != null) {
-				Name.Dispose ();
-				Name = null;
+			if (_DetailLabel != null) {
+				_DetailLabel.Dispose ();
+				_DetailLabel = null;
+			}
+			if (_ItemIcon != null) {
+				_ItemIcon.Dispose ();
+				_ItemIcon = null;
+			}
+			if (_NameLabel != null) {
+				_NameLabel.Dispose ();
+				_NameLabel = null;
+			}
+			if (_PriceLabel != null) {
+				_PriceLabel.Dispose ();
+				_PriceLabel = null;
 			}
 		}
 	}

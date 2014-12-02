@@ -11,11 +11,10 @@ namespace FungiriumN
 
 		public CollectionTableCell (IntPtr handle) : base (handle)
 		{
-			this.Frame = new System.Drawing.RectangleF (this.Frame.Location, new System.Drawing.SizeF (this.Frame.Width, 50));
+			this.Frame = new System.Drawing.RectangleF (this.Frame.Location, new System.Drawing.SizeF (this.Frame.Width, 50.0f));
 		}
 
-		public UILabel NameLabel
-		{
+		public UILabel NameLabel { 
 			get {
 				return this._NameLabel;
 			}
@@ -23,9 +22,7 @@ namespace FungiriumN
 				this._NameLabel = value;
 			}
 		}
-
-		public UILabel DetailLabel
-		{
+		public UILabel DetailLabel {
 			get {
 				return this._DetailLabel;
 			}
@@ -33,9 +30,7 @@ namespace FungiriumN
 				this._DetailLabel = value;
 			}
 		}
-
-		public UIImageView FungusIcon
-		{
+		public UIImageView FungusIcon {
 			get {
 				return this._FungusIcon;
 			}

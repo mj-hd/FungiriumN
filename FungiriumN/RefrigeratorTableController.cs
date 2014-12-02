@@ -34,10 +34,29 @@ namespace FungiriumN
 			var cell = (RefrigeratorTableCell)tableView.DequeueReusableCell (RefrigeratorTableCell.Key);
 
 			cell.NameLabel.Text = item.GetMetadata ().Name;
+			cell.CountLabel.Text = stat.Count.ToString ();
 			cell.FungusIcon.Image = fungusImage;
 
 			return cell;
 		}
+
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{
+			this._selectedIndex = indexPath.Item;
+
+			tableView.BeginUpdates ();
+			tableView.EndUpdates ();
+		}
+
+		public override float GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+		{
+			if (indexPath.Item == this._selectedIndex) {
+				return 150.0f;
+			}
+			return 50.0f;
+		}
+
+		private int _selectedIndex = 0;
 
 	}
 }

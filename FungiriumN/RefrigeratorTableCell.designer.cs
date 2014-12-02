@@ -16,11 +16,27 @@ namespace FungiriumN
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel _CalorieLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel _CountLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel _CurrentCount { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView _FungusIcon { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel _Name { get; set; }
+		UILabel _NameLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel _PowerLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -28,13 +44,29 @@ namespace FungiriumN
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (_CalorieLabel != null) {
+				_CalorieLabel.Dispose ();
+				_CalorieLabel = null;
+			}
+			if (_CountLabel != null) {
+				_CountLabel.Dispose ();
+				_CountLabel = null;
+			}
+			if (_CurrentCount != null) {
+				_CurrentCount.Dispose ();
+				_CurrentCount = null;
+			}
 			if (_FungusIcon != null) {
 				_FungusIcon.Dispose ();
 				_FungusIcon = null;
 			}
-			if (_Name != null) {
-				_Name.Dispose ();
-				_Name = null;
+			if (_NameLabel != null) {
+				_NameLabel.Dispose ();
+				_NameLabel = null;
+			}
+			if (_PowerLabel != null) {
+				_PowerLabel.Dispose ();
+				_PowerLabel = null;
 			}
 			if (_PutButton != null) {
 				_PutButton.Dispose ();

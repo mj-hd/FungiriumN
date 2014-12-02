@@ -8,25 +8,21 @@ namespace FungiriumN
 	partial class RefrigeratorTableCell : UITableViewCell
 	{
 		public static string Key = "RefrigeratorTableCell";
+
 		public RefrigeratorTableCell (IntPtr handle) : base (handle)
 		{
-		}
-		public RefrigeratorTableCell () : base ()
-		{
+			this.Frame = new System.Drawing.RectangleF (this.Frame.Location, new System.Drawing.SizeF (this.Frame.Width, 50.0f));
 		}
 
-		public UILabel NameLabel
-		{
-			get {
-				return this._Name;
+		public UILabel NameLabel {
+			get { 
+				return this._NameLabel;
 			}
 			set {
-				this._Name = value;
+				this._NameLabel = value;
 			}
 		}
-
-		public UIImageView FungusIcon
-		{
+		public UIImageView FungusIcon {
 			get {
 				return this._FungusIcon;
 			}
@@ -34,14 +30,28 @@ namespace FungiriumN
 				this._FungusIcon = value;
 			}
 		}
-
-		public UIButton PutButton
-		{
+		public UIButton PutButton {
 			get {
 				return this._PutButton;
 			}
 			set {
 				this._PutButton = value;
+			}
+		}
+		public UILabel CountLabel { 
+			get {
+				return this._CountLabel;
+			}
+			set {
+				this._CountLabel = value;
+			}
+		}
+		public UILabel CalorieLabel {
+			get {
+				return this._CalorieLabel;
+			}
+			set {
+				this._CalorieLabel = value;
 			}
 		}
 

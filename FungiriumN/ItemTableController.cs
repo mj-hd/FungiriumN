@@ -28,12 +28,32 @@ namespace FungiriumN
 			var stat = inventory.GetValueAt (indexPath.Item);
 			var item = stat.Instance;
 
-			var cell = new UITableViewCell (UITableViewCellStyle.Subtitle, item.GetMetadata ().InternalName);
+			var cell = tableView.DequeueReusableCell (ItemTableCell.Key) as ItemTableCell;
 
-			cell.TextLabel.Text = item.GetMetadata ().Name;
-			cell.DetailTextLabel.Text = stat.Count.ToString ();
+			cell.NameLabel.Text = item.GetMetadata ().Name;
+			cell.DetailLabel.Text = item.GetMetadata ().Description;
+			cell.CountLabel.Text = stat.Count.ToString ();
+			//cell.ItemIcon.Image = 
 
 			return cell;
 		}
+
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{
+			this._selectedIndex = indexPath.Item;
+
+			tableView.BeginUpdates ();
+			tableView.EndUpdates ();
+		}
+
+		public override float GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+		{
+			if (indexPath.Item == this._selectedIndex) {
+				return 150.0f;
+			}
+			return 50.0f;
+		}
+
+		private int _selectedIndex = 0;
 	}
 }
