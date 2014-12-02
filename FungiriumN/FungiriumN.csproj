@@ -161,6 +161,7 @@
     <Compile Include="Items\Greenbull.cs" />
     <Compile Include="Items\Yellowbull.cs" />
     <Compile Include="Sprites\Fungi\Population.cs" />
+    <Compile Include="Items\Refrigerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

@@ -66,6 +66,7 @@ namespace FungiriumN.Sprites.Fungi
 			{
 				if (t == type) {
 					this [t].Count++;
+					this [t].IsRevealed = true;
 
 					return;
 				}

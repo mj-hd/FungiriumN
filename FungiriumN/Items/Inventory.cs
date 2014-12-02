@@ -20,10 +20,14 @@ namespace FungiriumN.Items
 			}
 		}
 
-		public static Type[] ItemType = new Type[] {
+		public static Type[] Types = new Type[] {
 			typeof(Greenbull),
 			typeof(Yellowbull),
 		};
+		protected virtual Type[] ItemType
+		{
+			get { return Inventory.Types; }
+		}
 
 		public Inventory ()
 		{

@@ -1,4 +1,5 @@
 using System;
+
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using System.CodeDom.Compiler;
@@ -13,17 +14,27 @@ namespace FungiriumN
 
 		public override int NumberOfSections (UITableView tableView)
 		{
-			return base.NumberOfSections (tableView);
+			return 1;
 		}
 
 		public override int RowsInSection (UITableView tableview, int section)
 		{
-			return base.RowsInSection (tableview, section);
+			return Items.Refrigerator.Instance.Count;
 		}
 
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
-			return base.GetCell (tableView, indexPath);
+			var refrigerator = Items.Refrigerator.Instance;
+
+			var stat = refrigerator.GetValueAt (indexPath.Item);
+			var item = stat.Instance;
+
+			var cell = new UITableViewCell (UITableViewCellStyle.Subtitle, item.GetMetadata ().InternalName);
+
+			cell.TextLabel.Text = item.GetMetadata ().Name;
+			cell.DetailTextLabel.Text = item.Count.ToString ();
+
+			return cell;
 		}
 
 	}

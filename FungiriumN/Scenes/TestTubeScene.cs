@@ -28,6 +28,7 @@ namespace FungiriumN.Scenes
 
 			var sampleFungus = new Sprites.Fungi.Susukin();
 			this.TestTube.AddChild (sampleFungus);
+
 		}
 
 		public override void Update (double currentTime)
@@ -49,6 +50,7 @@ namespace FungiriumN.Scenes
 				this.TestTube.Fungi.Treat (locationInTestTube);
 
 			}));
+
 		}
 
 
