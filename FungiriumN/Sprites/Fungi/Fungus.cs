@@ -29,8 +29,8 @@ namespace FungiriumN.Sprites.Fungi
 			Fungus instance = (Fungus)Activator.CreateInstance (this.GetType ());
 
 			// TODO: Clone的にはこうだけど、本当にプロパティを全部コピーするかどうか
-			instance.State  = this.State;
-			instance.Energy = this.Energy;
+			//instance.State  = this.State;
+			//instance.Energy = this.Energy;
 
 			return instance;
 		}
@@ -86,7 +86,7 @@ namespace FungiriumN.Sprites.Fungi
 		public void Update (double delta)
 		{
 			// エネルギー
-			this._Energy -= (float)delta * 1.0f;
+			this._Energy -= (float)delta * 3.0f;
 
 			if (this._Energy < 0.0f) {
 

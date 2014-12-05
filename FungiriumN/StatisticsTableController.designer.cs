@@ -14,16 +14,8 @@ namespace FungiriumN
 	[Register ("StatisticsTableController")]
 	partial class StatisticsTableController
 	{
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView StatisticsTable { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
-			if (StatisticsTable != null) {
-				StatisticsTable.Dispose ();
-				StatisticsTable = null;
-			}
 		}
 	}
 }

@@ -62,6 +62,14 @@ namespace FungiriumN
 				this._CalorieLabel = value;
 			}
 		}
+		public UILabel CurrentLabel {
+			get {
+				return this._CurrentCount;
+			}
+			set {
+				this._CurrentCount = value;
+			}
+		}
 
 	}
 }

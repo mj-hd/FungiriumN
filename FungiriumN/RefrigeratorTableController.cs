@@ -35,10 +35,11 @@ namespace FungiriumN
 			var cell = (RefrigeratorTableCell)tableView.DequeueReusableCell (RefrigeratorTableCell.Key);
 
 			cell.NameLabel.Text = item.GetMetadata ().Name;
-			cell.CountLabel.Text = stat.Count.ToString ();
+			cell.CountLabel.Text =  item.Count.ToString() + "個";
 			cell.FungusIcon.Image = fungusImage;
-			cell.CalorieLabel.Text = meta.Calorie.ToString() + "cal";
+			cell.CalorieLabel.Text = meta.Calorie.ToString() + " cal";
 			cell.PowerLabel.Text = meta.Power.ToString ();
+			cell.CurrentLabel.Text = Sprites.Fungi.Population.Instance[item.FungusType].Count.ToString() +" 匹";
 
 			return cell;
 		}

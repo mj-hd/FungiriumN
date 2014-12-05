@@ -34,10 +34,6 @@ namespace FungiriumN
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ShopButton { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton StatisticsButton { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
 			if (AD != null) {
@@ -59,10 +55,6 @@ namespace FungiriumN
 			if (ShopButton != null) {
 				ShopButton.Dispose ();
 				ShopButton = null;
-			}
-			if (StatisticsButton != null) {
-				StatisticsButton.Dispose ();
-				StatisticsButton = null;
 			}
 		}
 	}

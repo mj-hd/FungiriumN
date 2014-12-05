@@ -32,8 +32,7 @@ namespace FungiriumN
 
 			cell.NameLabel.Text = item.GetMetadata ().Name;
 			cell.DetailLabel.Text = item.GetMetadata ().Description;
-			cell.CountLabel.Text = stat.Count.ToString ();
-			//cell.ItemIcon.Image = 
+			cell.CountLabel.Text = stat.Count.ToString () + "個";
 
 			return cell;
 		}
