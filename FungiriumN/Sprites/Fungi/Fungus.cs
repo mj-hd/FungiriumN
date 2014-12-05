@@ -58,6 +58,9 @@ namespace FungiriumN.Sprites.Fungi
 				return this._State;
 			}
 			set {
+				if (this._State == State.Dead)
+					return;
+
 				this._SwitchAnimation (value);
 				this._State = value;
 			}
@@ -156,7 +159,7 @@ namespace FungiriumN.Sprites.Fungi
 			this._HappyAnimation = SKAction.Sequence (
 				happyAnimation,
 				SKAction.Run (() => {
-					this._SwitchAnimation (State.Move);
+					this.State = State.Move;
 				})
 			);
 			this._DeadAnimation = SKAction.Sequence (
