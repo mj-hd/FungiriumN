@@ -161,7 +161,12 @@ namespace FungiriumN.Sprites.Fungi
 			var deadAnimation = SKAction.AnimateWithTextures (deadTexture, 2.0);
 
 			this._MoveAnimation = SKAction.RepeatActionForever (moveAnimation);
-			this._EatAnimation = SKAction.RepeatActionForever (eatAnimation);
+			this._EatAnimation = SKAction.Sequence (
+				eatAnimation,
+				SKAction.Run(() => {
+					this.State = State.Move;
+				})
+			);
 			this._HappyAnimation = SKAction.Sequence (
 				happyAnimation,
 				SKAction.Run (() => {

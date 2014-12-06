@@ -40,6 +40,10 @@ namespace FungiriumN.Sprites.Fungi
 
 		public void Eat (Fungus strong, Fungus weak)
 		{
+			if ((strong.State == State.Dead) ||
+			    (weak.State == State.Dead))
+				return;
+
 			weak.State = State.Dead;
 			strong.State = State.Eat;
 			strong.Energy += (float)weak.GetMetadata ().Calorie;
