@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Collections.Generic;
 
+using MonoTouch.Foundation;
 using MonoTouch.SpriteKit;
 
 namespace FungiriumN.Sprites.Fungi
@@ -32,6 +33,7 @@ namespace FungiriumN.Sprites.Fungi
 		public new void Remove (Fungus fungus)
 		{
 			base.Remove (fungus);
+			fungus.RemoveFromParent ();
 
 			Population.Instance.Decrement (fungus.GetType ());
 		}
@@ -50,6 +52,15 @@ namespace FungiriumN.Sprites.Fungi
 				if (fungus.ContainsPoint (p)) {
 					// TODO: 幸福値の操作など
 					fungus.State = State.Happy;
+
+					const int MetamorphosePerc = 10; // %
+					var rand = new Random ();
+
+					if (rand.Next(100) < MetamorphosePerc) {
+						fungus.Request = Request.Metamorphose;
+
+						Console.WriteLine ("Metamol!! {0}", fungus.GetType ().ToString ());
+					}
 				}
 			}
 		}
@@ -67,8 +78,9 @@ namespace FungiriumN.Sprites.Fungi
 
 		protected void _UpdateForASecond ()
 		{
-			var wantedList = new List<Fungus>();
+			var wantedList = new List<Fungus> ();
 			var divideList = new List<Fungus> ();
+			var metamoList = new List<KeyValuePair<Fungus, Type>> ();
 
 			const int ProducingBubblePerc = 60; // %で
 			var rand = new Random ();
@@ -84,6 +96,13 @@ namespace FungiriumN.Sprites.Fungi
 				case Request.Divide: // 分裂
 
 					divideList.Add (fungus);
+
+					fungus.Request = Request.None;
+
+					break;
+				case Request.Metamorphose:
+
+					metamoList.Add (new KeyValuePair<Fungus, Type> (fungus, fungus.GetNextForm ()));
 
 					fungus.Request = Request.None;
 
@@ -109,6 +128,20 @@ namespace FungiriumN.Sprites.Fungi
 			{
 				this.Add ((Fungus)fungus.Clone ());
 			}
+
+			// 突然変異
+			foreach (var fungusAndType in metamoList)
+			{
+				var fungus = (Fungus) Activator.CreateInstance (fungusAndType.Value);
+
+				fungus.Position = fungusAndType.Key.Position;
+				fungus.ZRotation = fungusAndType.Key.ZRotation;
+
+				this.Remove	(fungusAndType.Key);
+				this.Add (fungus);
+
+				this._ProduceStars (fungus);
+			}
 		}
 
 		protected void _ProduceBubble (Fungus fungus)
@@ -125,6 +158,17 @@ namespace FungiriumN.Sprites.Fungi
 
 			bubble.RunAction (this._BubbleAnimation);
 		}
+
+		protected void _ProduceStars (Fungus fungus)
+		{
+			var particleSystem = NSKeyedUnarchiver.UnarchiveFile ("Metamorphose.sks") as SKEmitterNode;
+
+			particleSystem.Position = fungus.Position;
+			particleSystem.ParticleTexture = SKTexture.FromImageNamed ("Star.png");
+
+			this._TestTube.AddChild (particleSystem);
+		}
+
 
 		private SKSpriteNode _TestTube;
 		private double _PreviousTime = 0.0;

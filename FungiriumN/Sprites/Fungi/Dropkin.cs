@@ -23,6 +23,11 @@ namespace FungiriumN.Sprites.Fungi
 		{
 			return Dropkin.Metadata;
 		}
+
+		public override Type GetNextForm ()
+		{
+			return typeof(Fungus);
+		}
  	}
 }
 

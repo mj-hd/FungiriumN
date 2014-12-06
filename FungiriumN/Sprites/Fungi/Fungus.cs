@@ -52,6 +52,11 @@ namespace FungiriumN.Sprites.Fungi
 			return Fungus.Metadata;
 		}
 
+		public virtual Type GetNextForm ()
+		{
+			return typeof(Susukin);
+		}
+
 		public State State
 		{
 			get {
@@ -120,6 +125,7 @@ namespace FungiriumN.Sprites.Fungi
 
 			}
 		}
+
 
 		protected State _State;
 		protected Request _Request;
@@ -282,7 +288,8 @@ namespace FungiriumN.Sprites.Fungi
 	{
 		None,
 		Clean,
-		Divide
+		Divide,
+		Metamorphose
 	}
 }
 

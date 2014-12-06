@@ -23,6 +23,11 @@ namespace FungiriumN.Sprites.Fungi
 		{
 			return ChochinkinM.Metadata;
 		}
+
+		public override Type GetNextForm ()
+		{
+			return typeof(Dropkin);
+		}
  	}
 }
 

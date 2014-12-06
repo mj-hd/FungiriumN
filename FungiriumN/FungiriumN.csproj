@@ -9,6 +9,7 @@
     <RootNamespace>FungiriumN</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>FungiriumN</AssemblyName>
+    <UseMSBuildEngine>True</UseMSBuildEngine>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -101,6 +102,8 @@
     <BundleResource Include="Resources\Fungi\Shikakukin.png" />
     <BundleResource Include="Resources\Fungi\Shokkakukin2.png" />
     <BundleResource Include="Resources\Fungi\Susukin.png" />
+    <BundleResource Include="Resources\Metamorphose.sks" />
+    <BundleResource Include="Resources\Star.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

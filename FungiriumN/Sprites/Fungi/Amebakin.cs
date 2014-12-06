@@ -23,6 +23,11 @@ namespace FungiriumN.Sprites.Fungi
 		{
 			return Amebakin.Metadata;
 		}
+
+		public override Type GetNextForm ()
+		{
+			return typeof (ChochinkinM);
+		}
  	}
 }
 

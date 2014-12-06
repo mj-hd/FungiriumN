@@ -23,6 +23,11 @@ namespace FungiriumN.Sprites.Fungi
 		{
 			return Susukin.Metadata;
 		}
+
+		public override Type GetNextForm ()
+		{
+			return typeof(Amebakin);
+		}
  	}
 }
 

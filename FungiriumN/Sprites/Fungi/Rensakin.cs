@@ -23,6 +23,11 @@ namespace FungiriumN.Sprites.Fungi
 		{
 			return Rensakin.Metadata;
 		}
+
+		public override Type GetNextForm ()
+		{
+			return typeof(SampleFungus);
+		}
  	}
 }
 

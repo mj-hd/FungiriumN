@@ -23,6 +23,11 @@ namespace FungiriumN.Sprites.Fungi
 		{
 			return Sankakukin.Metadata;
 		}
+
+		public override Type GetNextForm ()
+		{
+			return typeof(Shikakukin);
+		}
 	}
 }
 
