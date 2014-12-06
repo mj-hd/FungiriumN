@@ -32,7 +32,8 @@ namespace FungiriumN.Sprites.Fungi
 			typeof(Sankakukin),
 			typeof(Shikakukin),
 			typeof(Shokkakukin2),
-			typeof(Susukin)
+			typeof(Susukin),
+			typeof(Shakkin)
 		};
 
 		public Population ()

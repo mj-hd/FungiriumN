@@ -26,7 +26,7 @@ namespace FungiriumN.Sprites.Fungi
 
 		public override Type GetNextForm ()
 		{
-			return typeof(Amebakin);
+			return typeof(Shakkin);
 		}
  	}
 }

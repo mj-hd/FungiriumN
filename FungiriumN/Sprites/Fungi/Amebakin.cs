@@ -4,7 +4,7 @@ namespace FungiriumN.Sprites.Fungi
 {
 	public class Amebakin : Fungus
 	{
-		public static Metadata Metatada = new Metadata () {
+		public static Metadata Metadata = new Metadata () {
 			Name = "あめーばきん",
 			InternalName = "Amebakin",
 			Description = "アメーバのようにうねうねとした菌",
