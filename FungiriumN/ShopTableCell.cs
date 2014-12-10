@@ -12,6 +12,15 @@ namespace FungiriumN
 		public ShopTableCell (IntPtr handle) : base (handle)
 		{
 			this.Frame = new System.Drawing.RectangleF (this.Frame.Location, new System.Drawing.SizeF (this.Frame.Width, 50.0f));
+
+			var backgroundImageView = new UIImageView (UIImage.FromFile ("Table/Cell.png")) {
+				ContentMode = UIViewContentMode.TopLeft,
+				ContentScaleFactor = UIScreen.MainScreen.Scale,
+			};
+
+			this.BackgroundView = backgroundImageView;
+
+			this.SeparatorInset = new UIEdgeInsets (0.0f, 0.0f, 0.0f, this.Bounds.Size.Width);
 		}
 
 		public UIButton BuyButton { 

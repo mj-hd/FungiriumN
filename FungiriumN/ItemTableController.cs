@@ -9,6 +9,7 @@ namespace FungiriumN
 	{
 		public ItemTableController (IntPtr handle) : base (handle)
 		{
+			this.TableView.SeparatorColor = UIColor.Clear;
 		}
 
 		public override int RowsInSection (UITableView tableview, int section)

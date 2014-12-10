@@ -151,7 +151,7 @@ namespace FungiriumN.Sprites.Fungi
 		protected virtual int _DivideProb
 		{
 			get {
-				return 10;
+				return 5;
 			}
 		}
 

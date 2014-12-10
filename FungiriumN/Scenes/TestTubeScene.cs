@@ -31,6 +31,7 @@ namespace FungiriumN.Scenes
 
 			// DEBUG
 			Items.Refrigerator.Instance.Increment (typeof(Sprites.Fungi.Amebakin));
+			Items.Inventory.Instance.Increment (typeof(Items.Greenbull));
 
 		}
 
