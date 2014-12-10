@@ -36,6 +36,7 @@ namespace FungiriumN.Items
 			foreach (var type in this.ItemType) {
 				this [type] = new Statistics ((Item)Activator.CreateInstance (type)) {
 					Count = 0,
+					IsRevealed = false,
 				};
 			}
 
@@ -47,6 +48,7 @@ namespace FungiriumN.Items
 			{
 				if (type == this.ItemType[i]) {
 					this [type].Count++;
+					this [type].IsRevealed = true;
 					return;
 				}
 			}
@@ -85,6 +87,7 @@ namespace FungiriumN.Items
 				if (t == type) {
 
 					this [t].Count = 0;
+					this [t].IsRevealed = false;
 
 					// TODO: インスタンスも初期化すべき?
 
@@ -100,6 +103,7 @@ namespace FungiriumN.Items
 			foreach (var t in this.ItemType)
 			{
 				this [t].Count = 0;
+				this [t].IsRevealed = false;
 			}
 		}
 
@@ -147,10 +151,82 @@ namespace FungiriumN.Items
 			return this._statistics [i];
 		}
 
+		public Statistics GetAvailableAt (int i)
+		{
+			var count = 0;
+			Statistics result = null;
+
+			foreach (var stat in this)
+			{
+				if (stat.Count > 0)
+					count++;
+
+				if (count-1 == i) {
+					result = stat;
+					break;
+				}
+			}
+
+			if (result == null)
+				throw new IndexOutOfRangeException ("指定されたアイテムが見つかりませんでした。");
+
+			return result;
+		}
+
+		public Statistics GetRevealedAt (int i)
+		{
+			var count = 0;
+			Statistics result = null;
+
+			foreach (var stat in this)
+			{
+				if (stat.IsRevealed)
+					count++;
+
+				if (count-1 == i) {
+					result = stat;
+					break;
+				}
+			}
+
+			if (result == null)
+				throw new IndexOutOfRangeException ("指定されたアイテムが見つかりませんでした。");
+
+			return result;
+		}
+
 		public int Count
 		{
 			get {
 				return this.ItemType.GetLength (0);
+			}
+		}
+
+		public int AvailableCount
+		{
+			get {
+				var count = 0;
+				foreach (var stat in this)
+				{
+					if (stat.Count > 0)
+						count++;
+				}
+
+				return count;
+			}
+		}
+
+		public int RevealedCount
+		{
+			get {
+				var count = 0;
+				foreach (var stat in this)
+				{
+					if (stat.IsRevealed)
+						count++;
+				}
+
+				return count;
 			}
 		}
 
@@ -179,6 +255,7 @@ namespace FungiriumN.Items
 	public class Statistics
 	{
 		public int Count;
+		public bool IsRevealed;
 		public Item Instance {
 			get {
 				return this._instance;

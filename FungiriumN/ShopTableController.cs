@@ -19,12 +19,12 @@ namespace FungiriumN
 
 		public override int RowsInSection (UITableView tableview, int section)
 		{
-			return Items.Inventory.Instance.Count;
+			return Items.Inventory.Instance.RevealedCount;
 		}
 
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
-			var stat = Items.Inventory.Instance.GetValueAt(indexPath.Item);
+			var stat = Items.Inventory.Instance.GetRevealedAt(indexPath.Item);
 			var item = stat.Instance;
 
 			var cell = tableView.DequeueReusableCell (ShopTableCell.Key) as ShopTableCell;

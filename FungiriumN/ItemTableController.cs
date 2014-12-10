@@ -14,7 +14,7 @@ namespace FungiriumN
 
 		public override int RowsInSection (UITableView tableview, int section)
 		{
-			return Items.Inventory.Instance.Count;
+			return Items.Inventory.Instance.AvailableCount;
 		}
 
 		public override int NumberOfSections (UITableView tableView)
@@ -26,7 +26,7 @@ namespace FungiriumN
 		{
 
 			var inventory = Items.Inventory.Instance;
-			var stat = inventory.GetValueAt (indexPath.Item);
+			var stat = inventory.GetAvailableAt (indexPath.Item);
 			var item = stat.Instance;
 
 			var cell = tableView.DequeueReusableCell (ItemTableCell.Key) as ItemTableCell;

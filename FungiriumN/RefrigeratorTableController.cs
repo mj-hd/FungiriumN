@@ -21,14 +21,14 @@ namespace FungiriumN
 
 		public override int RowsInSection (UITableView tableview, int section)
 		{
-			return Items.Refrigerator.Instance.Count;
+			return Items.Refrigerator.Instance.AvailableCount;
 		}
 
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
 			var refrigerator = Items.Refrigerator.Instance;
 
-			var stat = refrigerator.GetValueAt (indexPath.Item);
+			var stat = refrigerator.GetAvailableAt (indexPath.Item);
 			var item = stat.Instance as Items.RefrigeratedFungus;
 			var meta = Sprites.Fungi.Population.Instance [item.FungusType].Instance.GetMetadata ();
 			var fungusImage = UIImage.FromFile ("Fungi/"+item.GetMetadata().InternalName+".png");

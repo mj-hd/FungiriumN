@@ -144,10 +144,83 @@ namespace FungiriumN.Items
 			return this._statistics [i];
 		}
 
+		public Statistics GetAvailableAt (int i)
+		{
+			var count = 0;
+			Statistics result = null;
+
+			foreach (var stat in this)
+			{
+				if (stat.Count > 0)
+					count++;
+
+				if (count-1 == i) {
+					result = stat;
+					break;
+				}
+			}
+
+			if (result == null)
+				throw new IndexOutOfRangeException ("指定されたアイテムが見つかりませんでした。");
+
+			return result;
+		}
+
+		public Statistics GetRevealedAt (int i)
+		{
+			var count = 0;
+			Statistics result = null;
+
+			foreach (var stat in this)
+			{
+				if (stat.IsRevealed)
+					count++;
+
+				if (count-1 == i) {
+					result = stat;
+					break;
+				}
+			}
+
+			if (result == null)
+				throw new IndexOutOfRangeException ("指定されたアイテムが見つかりませんでした。");
+
+			return result;
+		}
+
 		public int Count
 		{
 			get {
 				return this.ItemType.GetLength (0);
+			}
+		}
+
+
+		public int AvailableCount
+		{
+			get {
+				var count = 0;
+				foreach (var stat in this)
+				{
+					if (stat.Count > 0)
+						count++;
+				}
+
+				return count;
+			}
+		}
+
+		public int RevealedCount
+		{
+			get {
+				var count = 0;
+				foreach (var stat in this)
+				{
+					if (stat.IsRevealed)
+						count++;
+				}
+
+				return count;
 			}
 		}
 
