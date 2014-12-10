@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace FungiriumN.Sprites.Fungi
 {
@@ -27,6 +28,11 @@ namespace FungiriumN.Sprites.Fungi
 		public override Type GetNextForm ()
 		{
 			return typeof(Shakkin);
+		}
+
+		protected override SizeF _GetPhysicsSize ()
+		{
+			return new SizeF (15.0f, 40.0f);
 		}
  	}
 }

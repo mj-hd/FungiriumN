@@ -188,9 +188,14 @@ namespace FungiriumN.Sprites.Fungi
 			this.Size = moveTexture [0].Size;
 		}
 
+		protected virtual SizeF _GetPhysicsSize ()
+		{
+			return this.Size;
+		}
+
 		protected virtual void _SetPhysics ()
 		{
-			var body = SKPhysicsBody.CreateRectangularBody (this.Size);
+			var body = SKPhysicsBody.CreateRectangularBody (this._GetPhysicsSize ());
 			body.CategoryBitMask = this.GetMetadata ().Category;
 			body.ContactTestBitMask = Metadata.FungusCategory;
 			body.CollisionBitMask = Metadata.FungusCategory | Sprites.TestTubeSprite.TestTubeCategory;
