@@ -188,7 +188,7 @@ namespace FungiriumN.Sprites.Fungi
 			var body = SKPhysicsBody.CreateRectangularBody (this.Size);
 			body.CategoryBitMask = this.GetMetadata ().Category;
 			body.ContactTestBitMask = Metadata.FungusCategory;
-			body.CollisionBitMask = 0;
+			body.CollisionBitMask = Metadata.FungusCategory | Sprites.TestTubeSprite.TestTubeCategory;
 			body.AffectedByGravity = false;
 
 			this.PhysicsBody = body;

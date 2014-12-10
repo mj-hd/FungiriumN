@@ -40,6 +40,8 @@ namespace FungiriumN.Sprites
 			return Path.ContainsPoint (p, false);
 		}
 
+		public static uint TestTubeCategory = 1 << 13;
+
 
 		public Fungi.Fungi Fungi;
 
@@ -66,6 +68,14 @@ namespace FungiriumN.Sprites
 				ZPosition = 0.0f,
 			};
 			this.AddChild (solution);
+
+			// PhysicsBodyの設定
+			var body = SKPhysicsBody.CreateEdgeChain (Path);
+			body.CategoryBitMask = TestTubeCategory;
+			body.ContactTestBitMask = 0;
+			body.CollisionBitMask = Sprites.Fungi.Metadata.FungusCategory;
+			body.AffectedByGravity = false;
+			this.PhysicsBody = body;
 
 			// Fungiコレクションの初期化
 			this.Fungi = new Fungi.Fungi (this);
