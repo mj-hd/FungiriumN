@@ -42,6 +42,8 @@ namespace FungiriumN.Sprites.Fungi
 		{
 			this._SetTextures ();
 
+			this._SetPhysics ();
+
 			this._MoveAround (1.0f);
 
 			this.State = State.Move;
@@ -184,7 +186,10 @@ namespace FungiriumN.Sprites.Fungi
 			this.NormalTexture = moveTexture [0];
 			this.Texture = moveTexture [0];
 			this.Size = moveTexture [0].Size;
+		}
 
+		protected virtual void _SetPhysics ()
+		{
 			var body = SKPhysicsBody.CreateRectangularBody (this.Size);
 			body.CategoryBitMask = this.GetMetadata ().Category;
 			body.ContactTestBitMask = Metadata.FungusCategory;
