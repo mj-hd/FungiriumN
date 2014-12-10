@@ -96,7 +96,7 @@ namespace FungiriumN.Sprites.Fungi
 		public void Update (double delta)
 		{
 			// エネルギー
-			this._Energy -= (float)delta * 3.0f;
+			this._Energy -= (float)delta * this._EnergyEfficiency;
 
 			if (this._Energy < 0.0f) {
 
@@ -107,19 +107,16 @@ namespace FungiriumN.Sprites.Fungi
 			// 移動
 			if (this.State == State.Move) {
 
-				const int MovePerc = 30; // %
 				var rand = new Random ();
 
-				if (rand.Next(100) < MovePerc) {
+				if (rand.Next(100) < this._MoveProb) {
 
 					this._MoveAround (1.0f);
 
 				}
 
 				// 分裂
-				const int DividePerc = 10; // %
-
-				if (rand.Next(100) < DividePerc) {
+				if (rand.Next(100) < this._DivideProb) {
 
 					this.Request = Request.Divide;
 
@@ -136,6 +133,34 @@ namespace FungiriumN.Sprites.Fungi
 		protected SKAction _EatAnimation;
 		protected SKAction _HappyAnimation;
 		protected SKAction _DeadAnimation;
+
+		protected virtual SizeF _PhysicsSize
+		{
+			get {
+				return this.Size;
+			}
+		}
+
+		protected virtual float _EnergyEfficiency
+		{
+			get {
+				return 3.0f;
+			}
+		}
+
+		protected virtual int _DivideProb
+		{
+			get {
+				return 10;
+			}
+		}
+
+		protected virtual int _MoveProb
+		{
+			get {
+				return 30;
+			}
+		}
 
 		protected virtual void _SetTextures ()
 		{
@@ -188,14 +213,9 @@ namespace FungiriumN.Sprites.Fungi
 			this.Size = moveTexture [0].Size;
 		}
 
-		protected virtual SizeF _GetPhysicsSize ()
-		{
-			return this.Size;
-		}
-
 		protected virtual void _SetPhysics ()
 		{
-			var body = SKPhysicsBody.CreateRectangularBody (this._GetPhysicsSize ());
+			var body = SKPhysicsBody.CreateRectangularBody (this._PhysicsSize);
 			body.CategoryBitMask = this.GetMetadata ().Category;
 			body.ContactTestBitMask = Metadata.FungusCategory;
 			body.CollisionBitMask = Metadata.FungusCategory | Sprites.TestTubeSprite.TestTubeCategory;

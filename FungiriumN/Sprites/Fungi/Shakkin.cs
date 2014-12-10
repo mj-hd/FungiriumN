@@ -30,9 +30,11 @@ namespace FungiriumN.Sprites.Fungi
 			return typeof (ChochinkinM);
 		}
 
-		protected override SizeF _GetPhysicsSize ()
+		protected override SizeF _PhysicsSize
 		{
-			return new SizeF (40.0f, 20.0f);
+			get {
+				return new SizeF (40.0f, 20.0f);
+			}
 		}
  	}
 }

@@ -30,9 +30,11 @@ namespace FungiriumN.Sprites.Fungi
 			return typeof(Shakkin);
 		}
 
-		protected override SizeF _GetPhysicsSize ()
+		protected override SizeF _PhysicsSize
 		{
-			return new SizeF (15.0f, 40.0f);
+			get {
+				return new SizeF (15.0f, 40.0f);
+			}
 		}
  	}
 }
