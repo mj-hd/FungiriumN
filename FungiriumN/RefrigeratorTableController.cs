@@ -11,6 +11,7 @@ namespace FungiriumN
 	{
 		public RefrigeratorTableController (IntPtr handle) : base (handle)
 		{
+			this.TableView.SeparatorColor = UIColor.Clear;
 		}
 
 		public override int NumberOfSections (UITableView tableView)
@@ -36,7 +37,7 @@ namespace FungiriumN
 
 			cell.NameLabel.Text = item.GetMetadata ().Name;
 			cell.CountLabel.Text =  item.Count.ToString() + "個";
-			cell.FungusIcon.Image = fungusImage;
+			cell.SetFungusIcon (fungusImage);
 			cell.CalorieLabel.Text = meta.Calorie.ToString() + " cal";
 			cell.PowerLabel.Text = meta.Power.ToString ();
 			cell.CurrentLabel.Text = Sprites.Fungi.Population.Instance[item.FungusType].Count.ToString() +" 匹";

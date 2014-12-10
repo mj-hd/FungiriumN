@@ -105,6 +105,9 @@
     <BundleResource Include="Resources\Metamorphose.sks" />
     <BundleResource Include="Resources\Star.png" />
     <BundleResource Include="Resources\Fungi\Shakkin.png" />
+    <BundleResource Include="Resources\Table\Cell.png" />
+    <BundleResource Include="Resources\Table\Cup.png" />
+    <BundleResource Include="Resources\Table\Solution.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -195,6 +198,7 @@
     <Folder Include="Sprites\Fungi\" />
     <Folder Include="Items\" />
     <Folder Include="Resources\Fungi\" />
+    <Folder Include="Resources\Table\" />
   </ItemGroup>
   <ItemGroup>
     <AtlasTexture Include="Resources\Fungi.atlas\Amebakin.png" />
