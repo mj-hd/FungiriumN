@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Drawing;
-using System.Collections.Generic;
 
-using MonoTouch.UIKit;
 using MonoTouch.SpriteKit;
 using MonoTouch.CoreGraphics;
 
@@ -10,6 +8,9 @@ namespace FungiriumN.Sprites
 {
 	public class TestTubeSprite : SKSpriteNode
 	{
+
+		#region PATHの設定
+
 		const float GapForShape = 255.0f;
 
 		private static PointF[] _Shape = {
@@ -40,8 +41,9 @@ namespace FungiriumN.Sprites
 			return Path.ContainsPoint (p, false);
 		}
 
-		public static uint TestTubeCategory = 1 << 13;
+		#endregion
 
+		public static uint TestTubeCategory = 1 << 13;
 
 		public Fungi.Fungi Fungi;
 

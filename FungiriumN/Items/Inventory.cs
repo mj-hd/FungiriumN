@@ -6,7 +6,7 @@ namespace FungiriumN.Items
 {
 	public class Inventory : IEnumerable<Statistics>
 	{
-		// シングルトン
+		#region シングルトン
 
 		private static Inventory _instance = null;
 		public static Inventory Instance
@@ -20,14 +20,12 @@ namespace FungiriumN.Items
 			}
 		}
 
+		#endregion
+
 		public static Type[] Types = new Type[] {
 			typeof(Greenbull),
 			typeof(Yellowbull),
 		};
-		protected virtual Type[] ItemType
-		{
-			get { return Inventory.Types; }
-		}
 
 		public Inventory ()
 		{
@@ -228,6 +226,12 @@ namespace FungiriumN.Items
 
 				return count;
 			}
+		}
+
+
+		protected virtual Type[] ItemType
+		{
+			get { return Inventory.Types; }
 		}
 
 

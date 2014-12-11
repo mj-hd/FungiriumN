@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-using MonoTouch.Foundation;
 using MonoTouch.SpriteKit;
-using MonoTouch.CoreGraphics;
 using MonoTouch.UIKit;
 
 namespace FungiriumN.Scenes

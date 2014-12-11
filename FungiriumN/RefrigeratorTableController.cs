@@ -2,8 +2,6 @@ using System;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using MonoTouch.ObjCRuntime;
-using System.CodeDom.Compiler;
 
 namespace FungiriumN
 {

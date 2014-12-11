@@ -21,11 +21,11 @@ namespace FungiriumN.Scenes
 			// Recognizerを追加
 			view.AddGestureRecognizer (new UIPinchGestureRecognizer((sender) =>
 				{
-					this._OnPinchGesture (sender);
+					this._onPinchGesture (sender);
 				}));
 		}
 
-		private void _OnPinchGesture(UIPinchGestureRecognizer sender)
+		private void _onPinchGesture(UIPinchGestureRecognizer sender)
 		{
 
 			if (sender.State == UIGestureRecognizerState.Began) {

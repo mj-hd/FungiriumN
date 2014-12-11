@@ -1,8 +1,7 @@
 using System;
 using System.Drawing;
-using MonoTouch.Foundation;
+
 using MonoTouch.UIKit;
-using System.CodeDom.Compiler;
 
 namespace FungiriumN
 {
@@ -12,8 +11,9 @@ namespace FungiriumN
 
 		public RefrigeratorTableCell (IntPtr handle) : base (handle)
 		{
-			this.Frame = new System.Drawing.RectangleF (this.Frame.Location, new System.Drawing.SizeF (this.Frame.Width, 50.0f));
+			this.Frame = new RectangleF (this.Frame.Location, new SizeF (this.Frame.Width, 50.0f));
 
+			// 背景画像の設定
 			var backgroundImageView = new UIImageView (UIImage.FromFile ("Table/Cell.png")) {
 				ContentMode = UIViewContentMode.TopLeft,
 				ContentScaleFactor = UIScreen.MainScreen.Scale,
@@ -21,23 +21,16 @@ namespace FungiriumN
 
 			this.BackgroundView = backgroundImageView;
 
+			// セパレータの隠蔽
 			this.SeparatorInset = new UIEdgeInsets (0.0f, 0.0f, 0.0f, this.Bounds.Size.Width);
 		}
 
-
-		public UILabel NameLabel {
-			get { 
-				return this._NameLabel;
-			}
-			set {
-				this._NameLabel = value;
-			}
-		}
 		public void SetFungusIcon (UIImage fungus) {
 
 			var solution = UIImage.FromFile ("Table/Solution.png");
 			var cup = UIImage.FromFile ("Table/Cup.png");
 	
+			// 瓶入り菌画像の作成
 			UIGraphics.BeginImageContextWithOptions (this._FungusIcon.Frame.Size, false, 0);
 
 			const float SizeRatio = 0.65f;
@@ -48,6 +41,15 @@ namespace FungiriumN
 			this._FungusIcon.Image = UIGraphics.GetImageFromCurrentImageContext ();
 
 			UIGraphics.EndImageContext ();
+		}
+
+		public UILabel NameLabel {
+			get { 
+				return this._NameLabel;
+			}
+			set {
+				this._NameLabel = value;
+			}
 		}
 		public UIButton PutButton {
 			get {

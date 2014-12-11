@@ -6,8 +6,7 @@ namespace FungiriumN.Sprites.Fungi
 {
 	public class Population : IEnumerable<Statistics>
 	{
-
-		// シングルトン
+		#region シングルトン
 
 		private static Population _instance = null;
 		public static Population Instance
@@ -20,6 +19,8 @@ namespace FungiriumN.Sprites.Fungi
 				return _instance;
 			}
 		}
+
+		#endregion
 
 		public static Type[] FungusType = new Type[] {
 			typeof(Amebakin),

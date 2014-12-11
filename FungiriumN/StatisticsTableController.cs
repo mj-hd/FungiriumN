@@ -1,6 +1,6 @@
 using System;
+
 using MonoTouch.UIKit;
-using MonoTouch.SpriteKit;
 using MonoTouch.Foundation;
 
 namespace FungiriumN
@@ -33,7 +33,6 @@ namespace FungiriumN
 			var cell = new UITableViewCell (UITableViewCellStyle.Subtitle, fungus.GetMetadata ().InternalName);
 
 			cell.TextLabel.Text = fungus.GetMetadata().Name;
-
 			cell.DetailTextLabel.Text = stat.Count.ToString () + " 匹";
 
 			var fungusImage = new UIImageView (UIImage.FromFile ("Fungi/"+fungus.GetMetadata().InternalName+".png"));
@@ -42,8 +41,6 @@ namespace FungiriumN
 
 			return cell;
 		}
-
-
 
 		public override void WillDisplay (UITableView tableView, UITableViewCell cell, NSIndexPath indexPath)
 		{

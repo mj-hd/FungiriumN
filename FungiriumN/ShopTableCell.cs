@@ -1,7 +1,6 @@
 using System;
-using MonoTouch.Foundation;
+
 using MonoTouch.UIKit;
-using System.CodeDom.Compiler;
 
 namespace FungiriumN
 {
@@ -13,6 +12,7 @@ namespace FungiriumN
 		{
 			this.Frame = new System.Drawing.RectangleF (this.Frame.Location, new System.Drawing.SizeF (this.Frame.Width, 50.0f));
 
+			// 背景画像の設定
 			var backgroundImageView = new UIImageView (UIImage.FromFile ("Table/Cell.png")) {
 				ContentMode = UIViewContentMode.TopLeft,
 				ContentScaleFactor = UIScreen.MainScreen.Scale,
@@ -20,6 +20,7 @@ namespace FungiriumN
 
 			this.BackgroundView = backgroundImageView;
 
+			// セパレータを隠蔽
 			this.SeparatorInset = new UIEdgeInsets (0.0f, 0.0f, 0.0f, this.Bounds.Size.Width);
 		}
 

@@ -42,11 +42,11 @@ namespace FungiriumN.Scenes
 
 			// Recognizerを追加する
 			view.AddGestureRecognizer (new UIPanGestureRecognizer((sender) => {
-				this._OnPanGesture (sender);
+				this._onPanGesture (sender);
 			}));
 		}
 
-		private void _OnPanGesture (UIPanGestureRecognizer sender)
+		private void _onPanGesture (UIPanGestureRecognizer sender)
 		{
 
 			if (sender.State == UIGestureRecognizerState.Began) {

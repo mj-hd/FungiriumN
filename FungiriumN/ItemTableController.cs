@@ -1,7 +1,7 @@
 using System;
+
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using System.CodeDom.Compiler;
 
 namespace FungiriumN
 {
@@ -12,19 +12,18 @@ namespace FungiriumN
 			this.TableView.SeparatorColor = UIColor.Clear;
 		}
 
-		public override int RowsInSection (UITableView tableview, int section)
-		{
-			return Items.Inventory.Instance.AvailableCount;
-		}
-
 		public override int NumberOfSections (UITableView tableView)
 		{
 			return 1;
 		}
 
+		public override int RowsInSection (UITableView tableview, int section)
+		{
+			return Items.Inventory.Instance.AvailableCount;
+		}
+
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
-
 			var inventory = Items.Inventory.Instance;
 			var stat = inventory.GetAvailableAt (indexPath.Item);
 			var item = stat.Instance;

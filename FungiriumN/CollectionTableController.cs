@@ -1,7 +1,7 @@
 using System;
+
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using System.CodeDom.Compiler;
 
 namespace FungiriumN
 {
@@ -11,6 +11,7 @@ namespace FungiriumN
 		{
 			this.TableView.SeparatorColor = UIColor.Clear;
 		}
+
 
 		public override int NumberOfSections (UITableView tableView)
 		{
@@ -26,7 +27,6 @@ namespace FungiriumN
 		{
 			var population = Sprites.Fungi.Population.Instance;
 			var stat = Sprites.Fungi.Population.Instance.GetRevealedAt (indexPath.Item);
-
 			var fungus = stat.Instance;
 			var fungusImage = UIImage.FromFile ("Fungi/"+fungus.GetMetadata().InternalName+".png");
 
@@ -39,7 +39,6 @@ namespace FungiriumN
 			return cell;
 		}
 
-		private int _selectedIndex = 0;
 		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 		{
 			this._selectedIndex = indexPath.Item;
@@ -57,5 +56,6 @@ namespace FungiriumN
 			return 50.0f;
 		}
 
+		private int _selectedIndex = 0;
 	}
 }

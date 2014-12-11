@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections;
 
@@ -7,7 +6,7 @@ namespace FungiriumN.Items
 {
 	public class Refrigerator : IEnumerable<Statistics>
 	{
-		// シングルトン
+		#region シングルトン
 
 		private static Refrigerator _instance = null;
 		public static Refrigerator Instance
@@ -21,10 +20,8 @@ namespace FungiriumN.Items
 			}
 		}
 
-		protected virtual Type[] ItemType
-		{
-			get { return Sprites.Fungi.Population.FungusType; }
-		}
+		#endregion
+
 
 		public Refrigerator ()
 		{
@@ -222,6 +219,12 @@ namespace FungiriumN.Items
 
 				return count;
 			}
+		}
+
+
+		protected virtual Type[] ItemType
+		{
+			get { return Sprites.Fungi.Population.FungusType; }
 		}
 
 

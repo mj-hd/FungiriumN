@@ -1,17 +1,19 @@
 using System;
-using MonoTouch.Foundation;
+using System.Drawing;
+
 using MonoTouch.UIKit;
-using System.CodeDom.Compiler;
 
 namespace FungiriumN
 {
 	partial class ItemTableCell : UITableViewCell
 	{
 		public static string Key = "ItemTableCell";
+
 		public ItemTableCell (IntPtr handle) : base (handle)
 		{
-			this.Frame = new System.Drawing.RectangleF (this.Frame.Location, new System.Drawing.SizeF (this.Frame.Width, 50.0f));
+			this.Frame = new RectangleF (this.Frame.Location, new SizeF (this.Frame.Width, 50.0f));
 
+			// 背景画像の設定
 			var backgroundImageView = new UIImageView (UIImage.FromFile ("Table/Cell.png")) {
 				ContentMode = UIViewContentMode.TopLeft,
 				ContentScaleFactor = UIScreen.MainScreen.Scale,
@@ -19,6 +21,7 @@ namespace FungiriumN
 
 			this.BackgroundView = backgroundImageView;
 
+			// セパレータの隠蔽
 			this.SeparatorInset = new UIEdgeInsets (0.0f, 0.0f, 0.0f, this.Bounds.Size.Width);
 		}
 
