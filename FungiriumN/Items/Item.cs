@@ -28,8 +28,6 @@ namespace FungiriumN.Items
 
 			return true;
 		}
-
-		public int Count = 0;
 	}
 
 	public struct Metadata : FungiriumN.IMetadata

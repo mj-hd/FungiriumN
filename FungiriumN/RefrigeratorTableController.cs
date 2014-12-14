@@ -34,7 +34,7 @@ namespace FungiriumN
 			var cell = (RefrigeratorTableCell)tableView.DequeueReusableCell (RefrigeratorTableCell.Key);
 
 			cell.NameLabel.Text = item.GetMetadata ().Name;
-			cell.CountLabel.Text =  item.Count.ToString() + "個";
+			cell.CountLabel.Text =  stat.Count.ToString() + "個";
 			cell.SetFungusIcon (fungusImage);
 			cell.CalorieLabel.Text = meta.Calorie.ToString() + " cal";
 			cell.PowerLabel.Text = meta.Power.ToString ();
