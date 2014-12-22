@@ -92,5 +92,22 @@ namespace FungiriumN
 			}
 		}
 
+
+		private bool _isSetPushedPut = false;
+		public event EventHandler PushedPut
+		{
+			add {
+				if (!this._isSetPushedPut) {
+					this._isSetPushedPut = true;
+					this.PutButton.TouchUpInside += value;
+				}
+			}
+			remove {
+				if (this._isSetPushedPut) {
+					this._isSetPushedPut = false;
+					this.PutButton.TouchUpInside -= value;
+				}
+			}
+		}
 	}
 }

@@ -8,8 +8,6 @@ namespace FungiriumN.Scenes
 {
 	public class TestTubeScene : ZoomScrollScene
 	{
-		protected Sprites.TestTubeSprite TestTube;
-
 		public TestTubeScene (SizeF size) : base (size)
 		{
 			BackgroundColor = new UIColor (0.5f, 0.5f, 0.5f, 1.0f);
@@ -18,17 +16,16 @@ namespace FungiriumN.Scenes
 			this.PhysicsWorld.ContactDelegate = new PhysicsDelegate ((contact) => this._DidBeginContact (contact));
 
 			// 試験管を追加
-			this.TestTube = new Sprites.TestTubeSprite () {
-				Position = new PointF (Frame.X + Frame.Width / 2, Frame.Y + Frame.Height / 2),
-			};
+			var testTube = Sprites.TestTubeSprite.Instance;
+			testTube.Position = new PointF (Frame.X + Frame.Width / 2, Frame.Y + Frame.Height / 2);
 
-			this.AddContainer (this.TestTube);
-
-			var sampleFungus = new Sprites.Fungi.Susukin();
-			this.TestTube.AddChild (sampleFungus);
+			this.AddContainer (testTube);
 
 			// DEBUG
-			Items.Refrigerator.Instance.Increment (typeof(Sprites.Fungi.Amebakin));
+			foreach (var t in Sprites.Fungi.Population.FungusType)
+			{
+				Items.Refrigerator.Instance [t].Count = 5;
+			}
 			Items.Inventory.Instance.Increment (typeof(Items.Greenbull));
 
 		}
@@ -36,7 +33,7 @@ namespace FungiriumN.Scenes
 		public override void Update (double currentTime)
 		{
 			base.Update (currentTime);
-			this.TestTube.Update (currentTime);
+			Sprites.TestTubeSprite.Instance.Update (currentTime);
 		}
 
 		public override void DidMoveToView (SKView view)
@@ -44,13 +41,11 @@ namespace FungiriumN.Scenes
 			base.DidMoveToView (view);
 
 			this.View.AddGestureRecognizer (new UITapGestureRecognizer((sender) => {
-
 				var p = sender.LocationInView (this.View);
 				var locationInNode = this.ConvertPointFromView (p);
-				var locationInTestTube = this.ConvertPointToNode (locationInNode, this.TestTube);
+				var locationInTestTube = this.ConvertPointToNode (locationInNode, Sprites.TestTubeSprite.Instance);
 
-				this.TestTube.Fungi.Treat (locationInTestTube);
-
+				Sprites.TestTubeSprite.Instance.Fungi.Treat (locationInTestTube);
 			}));
 
 		}
@@ -58,7 +53,7 @@ namespace FungiriumN.Scenes
 
 		protected virtual void _DidBeginContact (SKPhysicsContact contact)
 		{
-			this.TestTube.DidContactBegin (contact);
+			Sprites.TestTubeSprite.Instance.DidContactBegin (contact);
 		}
 
 

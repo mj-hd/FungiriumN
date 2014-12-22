@@ -21,7 +21,7 @@ namespace FungiriumN.Items
 			return Greenbull.Metadata;
 		}
 
-		public override bool UseToTestTube (Sprites.TestTubeSprite testTube)
+		public override bool UseToTestTube ()
 		{
 			throw new NotImplementedException ();
 		}

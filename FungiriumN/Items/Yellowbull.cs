@@ -21,7 +21,7 @@ namespace FungiriumN.Items
 			return Yellowbull.Metadata;
 		}
 
-		public override bool UseToTestTube (Sprites.TestTubeSprite testTube)
+		public override bool UseToTestTube ()
 		{
 			throw new NotImplementedException ();
 		}

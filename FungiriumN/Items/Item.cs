@@ -22,7 +22,7 @@ namespace FungiriumN.Items
 			return Item.Metadata;
 		}
 
-		public virtual bool UseToTestTube (Sprites.TestTubeSprite testTube)
+		public virtual bool UseToTestTube ()
 		{
 			// TODO: 使用処理
 

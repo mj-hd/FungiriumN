@@ -40,6 +40,18 @@ namespace FungiriumN
 			cell.PowerLabel.Text = meta.Power.ToString ();
 			cell.CurrentLabel.Text = Sprites.Fungi.Population.Instance[item.FungusType].Count.ToString() +" 匹";
 
+			cell.PushedPut += (sender, e) => {
+
+				var itemStat = Items.Refrigerator.Instance.GetAvailableAt (indexPath.Item);
+
+				if (itemStat.Count <= 0) return;
+
+				this.NavigationController.PopToRootViewController (true);
+
+				itemStat.Instance.UseToTestTube ();
+				itemStat.Count --;
+			};
+
 			return cell;
 		}
 

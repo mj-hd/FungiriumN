@@ -43,6 +43,18 @@ namespace FungiriumN.Sprites
 
 		#endregion
 
+		private static TestTubeSprite _testTubeSprite = null;
+		public static TestTubeSprite Instance
+		{
+			get {
+				if (_testTubeSprite == null) {
+					_testTubeSprite = new TestTubeSprite();
+				}
+
+				return _testTubeSprite;
+			}
+		}
+
 		public static uint TestTubeCategory = 1 << 13;
 
 		public Fungi.Fungi Fungi;
@@ -80,7 +92,7 @@ namespace FungiriumN.Sprites
 			this.PhysicsBody = body;
 
 			// Fungiコレクションの初期化
-			this.Fungi = new Fungi.Fungi (this);
+			this.Fungi = new Fungi.Fungi ();
 		}
 
 		// Fungus用のAddChildを定義
@@ -88,7 +100,7 @@ namespace FungiriumN.Sprites
 		{
 			fungus.ZPosition = 1.0f;
 
-			this.Fungi.Add (fungus);
+			base.AddChild (fungus);
 		}
 
 		public void Update (double time)

@@ -65,5 +65,22 @@ namespace FungiriumN
 				this._UseButton = value;
 			}
 		}
+
+		private bool _isSetPushedUse = false;
+		public event EventHandler PushedUse
+		{
+			add {
+				if (!this._isSetPushedUse) {
+					this._isSetPushedUse = true;
+					this.UseButton.TouchUpInside += value;
+				}
+			}
+			remove {
+				if (this._isSetPushedUse) {
+					this._isSetPushedUse = false;
+					this.UseButton.TouchUpInside -= value;
+				}
+			}
+		}
 	}
 }

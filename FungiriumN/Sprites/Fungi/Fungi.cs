@@ -9,11 +9,9 @@ namespace FungiriumN.Sprites.Fungi
 {
 	public class Fungi : List<Fungus>
 	{
-		public Fungi (SKSpriteNode testTube)
+		public Fungi ()
 			: base ()
 		{
-			this._TestTube = testTube;
-
 			this._BubbleAnimation = SKAction.Sequence (
 				SKAction.RepeatAction (
 					SKAction.MoveBy (0.0f, 15.0f, 1.0f),
@@ -26,7 +24,7 @@ namespace FungiriumN.Sprites.Fungi
 		public new void Add (Fungus fungus)
 		{
 			base.Add (fungus);
-			this._TestTube.AddChild (fungus);
+			Sprites.TestTubeSprite.Instance.AddChild (fungus);
 			Population.Instance.Increment (fungus.GetType ());
 		}
 
@@ -158,7 +156,7 @@ namespace FungiriumN.Sprites.Fungi
 				Alpha = 0.4f
 			};
 
-			this._TestTube.AddChild (bubble);
+			Sprites.TestTubeSprite.Instance.AddChild (bubble);
 
 			bubble.RunAction (this._BubbleAnimation);
 		}
@@ -170,11 +168,9 @@ namespace FungiriumN.Sprites.Fungi
 			particleSystem.Position = fungus.Position;
 			particleSystem.ParticleTexture = SKTexture.FromImageNamed ("Star.png");
 
-			this._TestTube.AddChild (particleSystem);
+			Sprites.TestTubeSprite.Instance.AddChild (particleSystem);
 		}
 
-
-		private SKSpriteNode _TestTube;
 		private double _PreviousTime = 0.0;
 
 

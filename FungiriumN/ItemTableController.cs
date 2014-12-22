@@ -34,6 +34,18 @@ namespace FungiriumN
 			cell.DetailLabel.Text = item.GetMetadata ().Description;
 			cell.CountLabel.Text = stat.Count.ToString () + "個";
 
+			cell.PushedUse += (sender, e) => {
+
+				var itemStat = Items.Inventory.Instance.GetAvailableAt (indexPath.Item);
+
+				if (itemStat.Count <= 0) return;
+
+				this.NavigationController.PopToRootViewController (true);
+
+				itemStat.Instance.UseToTestTube ();
+				itemStat.Count --;
+			};
+
 			return cell;
 		}
 

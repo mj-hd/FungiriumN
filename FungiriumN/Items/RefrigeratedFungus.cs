@@ -14,11 +14,11 @@ namespace FungiriumN.Items
 			this._FungusType = type;
 		}
 
-		public override bool UseToTestTube (Sprites.TestTubeSprite testTube)
+		public override bool UseToTestTube ()
 		{
-			/*var fungus = (Sprites.Fungi.FungiStatistics[Metadata.InternalName].Type); //
+			var fungus = Activator.CreateInstance (this._FungusType) as Sprites.Fungi.Fungus;
 
-			testTube.Fungi.Add (fungus);*/
+			Sprites.TestTubeSprite.Instance.Fungi.Add (fungus);
 
 			return true;
 		}
