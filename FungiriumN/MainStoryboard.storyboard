@@ -17,8 +17,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" id="16" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" customClass="ADBanner" alpha="0.0" hidden="YES">
-                                <rect key="frame" x="0.0" y="520" width="320" height="0.0"/>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" id="16" translatesAutoresizingMaskIntoConstraints="NO" customClass="ADBanner" alpha="0.0" hidden="YES">
+                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
+                                <constraints>
+                                    <constraint id="232" firstAttribute="height" constant="50"/>
+                                    <constraint id="237" firstAttribute="width" constant="320"/>
+                                </constraints>
                             </adBannerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="27" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="263" y="91" width="46" height="30"/>
@@ -69,6 +73,10 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint id="238" firstItem="bdc-N1-crn" firstAttribute="bottom" secondItem="16" secondAttribute="bottom" constant="0.0"/>
+                            <constraint id="239" firstItem="bdc-N1-crn" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" constant="0.0"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="RefrigeratorButton" destination="27" id="name-outlet-27"/>
@@ -92,7 +100,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="36" customClass="RefrigeratorTableCell" rowHeight="150" reuseIdentifier="RefrigeratorTableCell" clipsSubviews="YES">
-                                <rect key="frame" x="0.0" y="86" width="320" height="150"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="36" id="37">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
@@ -204,7 +212,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="47" customClass="ItemTableCell" reuseIdentifier="ItemTableCell" rowHeight="151" clipsSubviews="YES">
-                                <rect key="frame" x="0.0" y="86" width="320" height="151"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="151"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="47" id="48">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="150.5"/>
@@ -274,7 +282,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="58" customClass="ShopTableCell" reuseIdentifier="ShopTableCell" rowHeight="150" clipsSubviews="YES">
-                                <rect key="frame" x="0.0" y="86" width="320" height="150"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="58" id="59">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
@@ -352,7 +360,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="69" customClass="CollectionTableCell" reuseIdentifier="CollectionTableCell" rowHeight="150" clipsSubviews="YES">
-                                <rect key="frame" x="0.0" y="86" width="320" height="150"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="69" id="70">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
