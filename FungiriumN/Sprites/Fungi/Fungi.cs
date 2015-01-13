@@ -21,8 +21,16 @@ namespace FungiriumN.Sprites.Fungi
 			);
 		}
 
+		public const int MaxNumberOfFungi = 100;
+
 		public new void Add (Fungus fungus)
 		{
+			if (this._Count > MaxNumberOfFungi) {
+				return;
+			}
+
+			this._Count++;
+
 			base.Add (fungus);
 			Sprites.TestTubeSprite.Instance.AddChild (fungus);
 			Population.Instance.Increment (fungus.GetType ());
@@ -30,6 +38,8 @@ namespace FungiriumN.Sprites.Fungi
 
 		public new void Remove (Fungus fungus)
 		{
+			this._Count--;
+
 			base.Remove (fungus);
 			fungus.RemoveFromParent ();
 
@@ -73,6 +83,13 @@ namespace FungiriumN.Sprites.Fungi
 				this._PreviousTime = time;
 
 				this._UpdateForASecond ();
+			}
+		}
+
+		private int _Count = 0;
+		public int Count {
+			get {
+				return this._Count;
 			}
 		}
 
