@@ -28,7 +28,7 @@ namespace FungiriumN
 			skView.ShowsFPS = true;
 			skView.ShowsDrawCount = true;
 			skView.ShowsNodeCount = true;
-			skView.ShowsPhysics = true;
+			skView.ShowsPhysics = false;
 
 			// Create and configure the scene.
 			var scene = new Scenes.TestTubeScene (skView.Bounds.Size);
